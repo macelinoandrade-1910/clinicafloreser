@@ -28,3 +28,11 @@ Site institucional desenvolvido para a Floreser Desenvolvimento e Aprendizagem, 
 - **Netlify** (Deploy & Hosting)
 
 ## 📁 Estrutura do Projeto
+clinicafloreser/
+├── index.html
+├── styles.css
+├── script.js
+├── assets/
+├── icons/
+├── README.md
+└── sitemap.xml
