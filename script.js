@@ -85,7 +85,7 @@ contactForm.addEventListener('submit', (e) => {
     // Montar mensagem para o WhatsApp
     // Montar mensagem para o WhatsApp
     // A mensagem será enviada para o número da clínica, com as informações do cliente
-    const whatsappMessage = `Olá, Floreser Desenvolvimento!%0A%0ARecebi uma mensagem do site:%0A%0ANome: ${name}%0AContato: ${phone}%0AMensagem: ${message}%0A%0APor favor, entre em contato comigo.`;
+    const whatsappMessage = `Olá! Vi o site da Floreser e gostaria de mais informações.%0A%0A*Meus dados:*%0ANome: ${name}%0AWhatsApp: ${phone}%0A%0AAguardo seu retorno!`;
     
     // URL da API do WhatsApp (para abrir o aplicativo, se possível, ou WhatsApp Web)
     const whatsappURL = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
@@ -117,13 +117,26 @@ const observer = new IntersectionObserver((entries) => {
 
 // Aplicar animação aos cards de serviço e pilares
 document.addEventListener('DOMContentLoaded', () => {
-    const animatedElements = document.querySelectorAll('.service-card, .pillar, .contact-info, .contact-form-container');
+    const animatedElements = document.querySelectorAll('.service-card, .pillar, .team-member, .contact-info, .contact-form-container');
     
-    animatedElements.forEach(el => {
+    animatedElements.forEach((el, index) => {
+        el.style.setProperty('--delay', index); // ✅ NOVO - stagger delay
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
         el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(el);
+    });
+
+    // ✅ NOVO - Loading suave de imagens
+    const images = document.querySelectorAll('img');
+    images.forEach(img => {
+        if (!img.complete) {
+            img.style.opacity = '0';
+            img.style.transition = 'opacity 0.5s ease';
+            img.addEventListener('load', function() {
+                this.style.opacity = '1';
+            });
+        }
     });
 });
 
@@ -210,3 +223,39 @@ phoneInput.addEventListener('input', (e) => {
     e.target.value = value;
 });
 
+// WhatsApp Widget Inteligente
+document.addEventListener('DOMContentLoaded', function() {
+    const whatsappWidget = document.querySelector('.wc_whatsapp_app');
+    
+    // Mostrar mensagem principal após 4 segundos (apenas primeira visita)
+    if (!localStorage.getItem('wc_whatsapp_shown')) {
+        setTimeout(function() {
+            whatsappWidget.classList.add('show-primary');
+            
+            // Esconder após 8 segundos
+            setTimeout(function() {
+                whatsappWidget.classList.remove('show-primary');
+            }, 8000);
+            
+            // Marcar como mostrado (não mostra novamente por 7 dias)
+            localStorage.setItem('wc_whatsapp_shown', 'true');
+        }, 4000);
+    }
+    
+    // Esconder mensagem ao clicar nela
+    const whatsappPrimary = document.querySelector('.wc_whatsapp_primary');
+    if (whatsappPrimary) {
+        whatsappPrimary.addEventListener('click', function(e) {
+            e.preventDefault();
+            this.style.display = 'none';
+        });
+    }
+    
+    // Esconder mensagem ao passar mouse no botão
+    const whatsappBtn = document.querySelector('.wc_whatsapp');
+    if (whatsappBtn) {
+        whatsappBtn.addEventListener('mouseenter', function() {
+            whatsappWidget.classList.remove('show-primary');
+        });
+    }
+});
