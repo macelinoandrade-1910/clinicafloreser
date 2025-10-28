@@ -17,6 +17,11 @@
     --cinza-medio: #6c757d;
     --texto-escuro: #2c3e50;
     
+	--whatsapp-green: #25D366;
+    --whatsapp-dark: #128C7E;
+    --shadow-soft: 0 2px 10px rgba(0,0,0,0.08);
+    --shadow-medium: 0 4px 20px rgba(0,0,0,0.12);
+    --shadow-strong: 0 8px 30px rgba(0,0,0,0.15);
     /* Fontes */
     --fonte-titulo: 'Dreaming Outloud Script', cursive;  
     --fonte-corpo: 'Comfortaa', sans-serif;
@@ -350,6 +355,18 @@ body {
 .service-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.nav-link, .btn, .service-card {
+    min-height: 44px;
+    min-width: 44px;
+}
+
+.service-card:nth-child(1),
+.service-card:nth-child(2),
+.service-card:nth-child(3) {
+    border: 2px solid var(--lilas-pastel);
+    transform: scale(1.02);
 }
 
 .service-icon {
@@ -760,6 +777,15 @@ body {
     font-size: 0.95rem;
 }
 
+img[loading="lazy"] {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+img[loading="lazy"].loaded {
+    opacity: 1;
+}
+
 /* Animação Flourish para o Hero */
 .hero-content {
     animation: flourish 1.2s ease-out;
@@ -777,7 +803,7 @@ body {
     100% {
         opacity: 1;
         transform: scale(1) translateY(0);
-    }
+    }		
 }
 
 /* Stagger para os cards - aparece em sequência */
@@ -879,3 +905,118 @@ body {
         right: -50px;
     }
 }
+
+/* ==========================================================================
+   OTIMIZAÇÕES 2024 - APENAS MELHORIAS ESSENCIAIS
+   ========================================================================== */
+
+/* 1. HEADER COM GLASS EFFECT (melhora visual) */
+.header {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* Safari */
+    background: rgba(252, 177, 173, 0.95);
+}
+
+/* 2. BOTÃO WHATSAPP MAIS CONVERSIVO */
+.btn-agendar {
+    background: linear-gradient(135deg, #4CAF50, #45a049) !important;
+    color: white !important;
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3) !important;
+}
+
+.btn-agendar:hover {
+    background: linear-gradient(135deg, #45a049, #4CAF50) !important;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4) !important;
+}
+
+/* 3. LINKS DE NAVEGAÇÃO MAIS ELEGANTES */
+.nav-link {
+    font-weight: 600;
+    position: relative;
+}
+
+/* 4. WIDGET WHATSAPP COM PULSO SUAVE */
+.wc_whatsapp {
+    animation: pulse-suave 2s infinite;
+}
+
+@keyframes pulse-suave {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.wc_whatsapp:hover {
+    animation: none;
+    transform: scale(1.1);
+}
+
+/* 5. MELHORIA DE PERFORMANCE MOBILE */
+@media (max-width: 768px) {
+    .hero {
+        background-attachment: scroll; /* Melhora performance */
+    }
+    .nav-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: auto;
+        background: linear-gradient(135deg, var(--rosa-pastel) 0%, var(--lilas-pastel) 100%);
+        flex-direction: column;
+        padding: 1.5rem 2rem;
+        gap: 0.8rem;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        z-index: 999;
+        max-height: 70vh;
+        overflow-y: auto;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        border-radius: 0 0 15px 15px;
+    }
+    
+    .nav-menu.active {
+        transform: translateX(0);
+    }
+    
+    .nav-menu li {
+        width: 100%;
+    }
+    
+    .nav-menu li a {
+        display: block;
+        width: 100%;
+        padding: 1rem;
+        text-align: center;
+        border-radius: 8px;
+        transition: background-color 0.3s ease;
+    }
+    
+    .nav-menu li a:hover {
+        background-color: rgba(255,255,255,0.2);
+    }
+    
+    /* Botão Agendar fica destacado */
+    .nav-menu .btn-agendar {
+        background: linear-gradient(135deg, #25D366, #128C7E);
+        color: white;
+        margin-top: 0.5rem;
+        text-align: center;
+    }
+	.contact-form {
+        padding: 1.5rem;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+        font-size: 16px; /* Evita zoom no iOS */
+    }
+	
+	 .nav-menu li a {
+        padding: 1.2rem 1rem; /* Área de toque maior */
+    }
+} 
+ 
+ 
+ 

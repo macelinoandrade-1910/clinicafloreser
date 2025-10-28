@@ -18,6 +18,37 @@ hamburger.addEventListener('click', () => {
     }
 });
 
+// Fechar menu ao clicar fora
+document.addEventListener('click', (event) => {
+    const isClickInsideMenu = navMenu.contains(event.target);
+    const isClickOnHamburger = hamburger.contains(event.target);
+    
+    if (!isClickInsideMenu && !isClickOnHamburger && navMenu.classList.contains('active')) {
+        // Fecha o menu
+        navMenu.classList.remove('active');
+        
+        // Reseta a animação do hamburger (igual ao seu código atual)
+        const spans = hamburger.querySelectorAll('span');
+        spans[0].style.transform = 'none';
+        spans[1].style.opacity = '1';
+        spans[2].style.transform = 'none';
+    }
+});
+
+// Fechar menu com tecla ESC
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && navMenu.classList.contains('active')) {
+        navMenu.classList.remove('active');
+        
+        // Reseta a animação do hamburger
+        const spans = hamburger.querySelectorAll('span');
+        spans[0].style.transform = 'none';
+        spans[1].style.opacity = '1';
+        spans[2].style.transform = 'none';
+    }
+});
+
+
 // Fechar menu ao clicar em um link
 const navLinks = document.querySelectorAll('.nav-link');
 navLinks.forEach(link => {
@@ -258,4 +289,76 @@ document.addEventListener('DOMContentLoaded', function() {
             whatsappWidget.classList.remove('show-primary');
         });
     }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const images = document.querySelectorAll('img[loading="lazy"]');
+    
+    images.forEach(img => {
+        if (img.complete) {
+            img.classList.add('loaded');
+        } else {
+            img.addEventListener('load', function() {
+                this.classList.add('loaded');
+            });
+        }
+    });
+});
+
+// Carregar mapa apenas quando visível
+const mapObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const iframe = entry.target;
+            iframe.src = iframe.dataset.src;
+            mapObserver.unobserve(iframe);
+        }
+    });
+});
+
+const mapIframe = document.querySelector('iframe');
+if (mapIframe) {
+    mapIframe.dataset.src = mapIframe.src;
+    mapIframe.src = '';
+    mapObserver.observe(mapIframe);
+}
+
+// ==========================================================================
+// RASTREAMENTO DE CONVERSÕES - CORRIGIDO
+// ==========================================================================
+
+// 1. WhatsApp e Agendamento
+document.querySelectorAll('.btn-agendar, .wc_whatsapp, .btn-automation').forEach(btn => {
+    btn.addEventListener('click', function() {
+        gtag('event', 'whatsapp_click', {
+            'event_category': 'conversion',
+            'event_label': this.textContent?.trim() || 'WhatsApp Button',
+            'value': 1
+        });
+        console.log('📱 WhatsApp tracked: ' + this.textContent?.trim());
+    });
+});
+
+// 2. Formulário de Contato
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+    contactForm.addEventListener('submit', function() {
+        gtag('event', 'form_submit', {
+            'event_category': 'lead',
+            'event_label': 'Contact Form',
+            'value': 1
+        });
+        console.log('📝 Form submission tracked');
+    });
+}
+
+// 3. Links WhatsApp genéricos (backup)
+document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp"]').forEach(link => {
+    link.addEventListener('click', function() {
+        gtag('event', 'whatsapp_click', {
+            'event_category': 'conversion',
+            'event_label': 'Generic WhatsApp Link',
+            'value': 1
+        });
+    });
 });
