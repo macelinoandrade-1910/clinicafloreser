@@ -97,40 +97,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Formulário de Contato - Integração com WhatsApp
-const contactForm = document.getElementById('contactForm');
-
-contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    // Obter valores do formulário
-    const name = document.getElementById('name').value;
-    const phone = document.getElementById('phone').value;
-    const message = document.getElementById('message').value;
-    
-    // Número do WhatsApp da clínica (SUBSTITUA PELO NÚMERO REAL)
-    // Formato: código do país + DDD + número (sem espaços ou caracteres especiais)
-    // Exemplo: 5541999999999
-    const whatsappNumber = '554187868813'; // Número real do WhatsApp
-    
-    // Montar mensagem para o WhatsApp
-    // Montar mensagem para o WhatsApp
-    // A mensagem será enviada para o número da clínica, com as informações do cliente
-    const whatsappMessage = `Olá! Vi o site da Floreser e gostaria de mais informações.%0A%0A*Meus dados:*%0ANome: ${name}%0AWhatsApp: ${phone}%0A%0AAguardo seu retorno!`;
-    
-    // URL da API do WhatsApp (para abrir o aplicativo, se possível, ou WhatsApp Web)
-    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
-    
-    // Abrir WhatsApp em nova aba
-    window.open(whatsappURL, '_blank');
-    
-    // Limpar formulário após envio
-    contactForm.reset();
-    
-    // Feedback visual (opcional)
-    alert('Sua mensagem será enviada para o WhatsApp da Floreser. Você será redirecionado(a) para lá para confirmar o envio. Aguarde um momento!');
-});
-
 // Animação de Scroll - Revelar elementos ao rolar a página
 const observerOptions = {
     threshold: 0.1,
@@ -340,15 +306,44 @@ document.querySelectorAll('.btn-agendar, .wc_whatsapp, .btn-automation').forEach
 });
 
 // 2. Formulário de Contato
+// ✅ APENAS ESTE BLOCO - FORMULÁRIO DE CONTATO UNIFICADO
 const contactForm = document.getElementById('contactForm');
+
 if (contactForm) {
-    contactForm.addEventListener('submit', function() {
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        // 1. PRIMEIRO: Rastreamento do Google Analytics
         gtag('event', 'form_submit', {
             'event_category': 'lead',
             'event_label': 'Contact Form',
             'value': 1
         });
         console.log('📝 Form submission tracked');
+        
+        // 2. DEPOIS: Integração com WhatsApp
+        // Obter valores do formulário
+        const name = document.getElementById('name').value;
+        const phone = document.getElementById('phone').value;
+        const message = document.getElementById('message').value;
+        
+        // Número do WhatsApp da clínica
+        const whatsappNumber = '5541987868813'; // Use o número correto
+        
+        // Montar mensagem para o WhatsApp
+        const whatsappMessage = `Olá! Vi o site da Floreser e gostaria de mais informações.%0A%0A*Meus dados:*%0ANome: ${name}%0AWhatsApp: ${phone}%0A%0AAguardo seu retorno!`;
+        
+        // URL da API do WhatsApp
+        const whatsappURL = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+        
+        // Abrir WhatsApp em nova aba
+        window.open(whatsappURL, '_blank');
+        
+        // Limpar formulário após envio
+        contactForm.reset();
+        
+        // Feedback visual
+        alert('Sua mensagem será enviada para o WhatsApp da Floreser. Você será redirecionado(a) para lá para confirmar o envio. Aguarde um momento!');
     });
 }
 
