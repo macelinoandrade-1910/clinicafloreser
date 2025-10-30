@@ -114,28 +114,53 @@ const observer = new IntersectionObserver((entries) => {
 
 // Aplicar animação aos cards de serviço e pilares
 document.addEventListener('DOMContentLoaded', () => {
-    const animatedElements = document.querySelectorAll('.service-card, .pillar, .team-member, .contact-info, .contact-form-container');
-    
-    animatedElements.forEach((el, index) => {
-        el.style.setProperty('--delay', index); // ✅ NOVO - stagger delay
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(el);
-    });
-
-    // ✅ NOVO - Loading suave de imagens
+    const animatedElements = document.querySelectorAll(
+        '.service-card, .pillar, .team-member, .contact-info, .contact-form-container'
+    );
     const images = document.querySelectorAll('img');
-    images.forEach(img => {
-        if (!img.complete) {
-            img.style.opacity = '0';
-            img.style.transition = 'opacity 0.5s ease';
-            img.addEventListener('load', function() {
-                this.style.opacity = '1';
-            });
-        }
-    });
+
+    // ⚙️ Função para inicializar as animações
+    const iniciarAnimacoes = () => {
+        animatedElements.forEach((el, index) => {
+            el.style.setProperty('--delay', index);
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    };
+
+    // ⚙️ Função para transição suave das imagens
+    const prepararImagens = () => {
+        images.forEach(img => {
+            // Apenas aplica fade se a imagem ainda não estiver pronta
+            if (!img.complete) {
+                img.style.opacity = '0';
+                img.style.transition = 'opacity 0.5s ease';
+                img.addEventListener('load', function() {
+                    this.style.opacity = '1';
+                });
+            } else {
+                // Garante que imagens já carregadas também apareçam suavemente
+                requestAnimationFrame(() => {
+                    img.style.opacity = '1';
+                    img.style.transition = 'opacity 0.3s ease';
+                });
+            }
+        });
+    };
+
+    // ✅ Inicia as animações estruturais assim que o DOM está pronto
+    iniciarAnimacoes();
+
+    // ✅ Espera o carregamento total de imagens antes de aplicar a suavização
+    if (document.readyState === 'complete') {
+        prepararImagens();
+    } else {
+        window.addEventListener('load', prepararImagens);
+    }
 });
+
 
 // Efeito de mudança de cor do header ao rolar
 window.addEventListener('scroll', () => {
@@ -150,7 +175,7 @@ window.addEventListener('scroll', () => {
 
 
 // Carousel functionality
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('load', () => {
     const carouselTrack = document.querySelector('.carousel-track');
     const prevButton = document.querySelector('.carousel-button.prev');
     const nextButton = document.querySelector('.carousel-button.next');
@@ -168,11 +193,7 @@ document.addEventListener('DOMContentLoaded', () => {
             itemsPerPage = 3;
         }
     };
-
-    // const updateCarousel = () => {
-        // const itemWidth = carouselItems[0].offsetWidth;
-        // carouselTrack.style.transform = `translateX(${-currentIndex * itemWidth}px)`;
-    // };
+ 
 	const updateCarousel = () => {
     const itemStyle = window.getComputedStyle(carouselItems[0]);
     const gap = parseInt(itemStyle.marginRight) || 18; // pega o gap
@@ -311,40 +332,51 @@ const contactForm = document.getElementById('contactForm');
 
 if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        
-        // 1. PRIMEIRO: Rastreamento do Google Analytics
+    e.preventDefault();
+    
+    // 🔥 MEDIR PERFORMANCE
+    const startTime = performance.now();
+    
+    // 1. DADOS DO FORMULÁRIO (rápido)
+    const name = document.getElementById('name').value;
+    const phone = document.getElementById('phone').value;
+    
+    // 2. WHATSAPP (ação principal primeiro)
+    const whatsappNumber = '5541987868813';
+    const whatsappMessage = `Olá! Gostaria de informações sobre a Floreser.%0A%0A*Nome:* ${name}%0A*WhatsApp:* ${phone}`;
+    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+    
+    // 🔥 ABRIR WHATSAPP IMEDIATAMENTE (não bloqueante)
+    setTimeout(() => {
+        window.open(whatsappURL, '_blank');
+    }, 0);
+    
+    // 3. RASTREAMENTO (não bloqueante)
+    setTimeout(() => {
         gtag('event', 'form_submit', {
             'event_category': 'lead',
-            'event_label': 'Contact Form',
+            'event_label': 'Contact Form', 
             'value': 1
         });
         console.log('📝 Form submission tracked');
+    }, 0);
+    
+    // 4. FEEDBACK VISUAL (toast)
+    const toast = document.getElementById('toast');
+    toast.classList.add('show');
+    
+    // 5. LIMPAR FORMULÁRIO
+    contactForm.reset();
+    
+    // 6. REMOVER TOAST APÓS 3 SEGUNDOS
+    setTimeout(() => {
+        toast.classList.remove('show');
         
-        // 2. DEPOIS: Integração com WhatsApp
-        // Obter valores do formulário
-        const name = document.getElementById('name').value;
-        const phone = document.getElementById('phone').value;
-        const message = document.getElementById('message').value;
-        
-        // Número do WhatsApp da clínica
-        const whatsappNumber = '5541987868813'; // Use o número correto
-        
-        // Montar mensagem para o WhatsApp
-        const whatsappMessage = `Olá! Vi o site da Floreser e gostaria de mais informações.%0A%0A*Meus dados:*%0ANome: ${name}%0AWhatsApp: ${phone}%0A%0AAguardo seu retorno!`;
-        
-        // URL da API do WhatsApp
-        const whatsappURL = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
-        
-        // Abrir WhatsApp em nova aba
-        window.open(whatsappURL, '_blank');
-        
-        // Limpar formulário após envio
-        contactForm.reset();
-        
-        // Feedback visual
-        alert('Sua mensagem será enviada para o WhatsApp da Floreser. Você será redirecionado(a) para lá para confirmar o envio. Aguarde um momento!');
-    });
+        // 🔥 LOG DE PERFORMANCE
+        const endTime = performance.now();
+        console.log(`⚡ Form processed in ${(endTime - startTime).toFixed(2)}ms`);
+    }, 3000);
+});
 }
 
 // 3. Links WhatsApp genéricos (backup)

@@ -24,12 +24,14 @@
     --shadow-strong: 0 8px 30px rgba(0,0,0,0.15);
     /* Fontes */
     --fonte-titulo: 'Dreaming Outloud Script', cursive;  
-    --fonte-corpo: 'Comfortaa', sans-serif;
+    --fonte-corpo: 'Comfortaa', Arial, sans-serif;
     
     /* Transições */
     --transicao: all 0.3s ease;
 }
-
+p, li, a {
+  color: #333; 
+}
 
 body {
     font-family: var(--fonte-corpo);
@@ -1018,5 +1020,24 @@ img[loading="lazy"].loaded {
     }
 } 
  
- 
+/* Toast Notification Moderna */
+.toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: var(--whatsapp-green);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    z-index: 10001;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+} 
  

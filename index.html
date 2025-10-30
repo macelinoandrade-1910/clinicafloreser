@@ -5,19 +5,21 @@
   "@context": "https://schema.org",
   "@type": "MedicalClinic",
   "name": "Clínica Floreser - Psicologia e Desenvolvimento",
-  "description": "Clínica de psicologia em Piraquara especializada em Psicologia Infantil, ABA, Neuropsicologia, Psicopedagogia, Psicomotricidade e Fonoaudiologia",
+  "alternateName": "Clínica Floreser Desenvolvimento e Aprendizagem",
+  "description": "Clínica de psicologia em Piraquara especializada em Psicologia Infantil, ABA, Neuropsicologia, Psicopedagogia, Psicomotricidade e Fonoaudiologia. Acolhendo sua jornada de desenvolvimento com ciência, sensibilidade e amor.",
+  "image": "https://clinicafloreser.netlify.app/assets/logotipo.png", 
+  "url": "https://clinicafloreser.netlify.app/",
+  "telephone": "+55-41-98786-8813",
+  "priceRange": "$$",
   "medicalSpecialty": [
     "Psychotherapy",
     "PediatricPsychotherapy", 
     "AppliedBehaviorAnalysis",
     "Neuropsychology",
     "Psychopedagogy",
-	"SpeechPathology"
+    "SpeechPathology",
+    "Psychomotricity"
   ],
-  "image": "https://clinicafloreser.netlify.app/assets/logotipo.png", 
-  "url": "https://clinicafloreser.netlify.app/",
-  "telephone": "+55-41-98786-8813",
-  "priceRange": "$$",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Rua Eliseu José Hipólito, 263 Sala 07",
@@ -28,9 +30,43 @@
   },
   "geo": {
     "@type": "GeoCoordinates",
-    "latitude": "-25.4425",
-    "longitude": "-49.0625"
+    "latitude": "-25.4419677",
+    "longitude": "-49.0623322"
   },
+  "founder": [
+    {
+      "@type": "Person",
+      "name": "Suélen Fernandes de Andrade",
+      "jobTitle": "Psicóloga, Psicopedagoga e Neuropsicóloga",
+      "affiliation": "Clínica Floreser Desenvolvimento e Aprendizagem",
+      "sameAs": [
+        "https://instagram.com/floreserdesenvolvimento",
+        "https://www.google.com/maps/place/Clinica+Floreser+Desenvolvimento"
+      ]
+    },
+    {
+      "@type": "Person",
+      "name": "Fátima Rosa",
+      "jobTitle": "Pedagoga e Psicopedagoga",
+      "affiliation": "Clínica Floreser Desenvolvimento e Aprendizagem",
+      "sameAs": [
+        "https://instagram.com/floreserdesenvolvimento",
+        "https://www.google.com/maps/place/Clinica+Floreser+Desenvolvimento"
+      ]
+    }
+  ],
+  "employee": [
+    {
+      "@type": "Person",
+      "name": "Suélen Fernandes de Andrade",
+      "jobTitle": "Psicóloga, Psicopedagoga e Neuropsicóloga"
+    },
+    {
+      "@type": "Person",
+      "name": "Fátima Rosa",
+      "jobTitle": "Pedagoga e Psicopedagoga"
+    } 
+  ],
   "openingHours": "Mo-Fr 08:00-18:00",
   "openingHoursSpecification": [
     {
@@ -47,16 +83,33 @@
     }
   ],
   "sameAs": [
-    "https://instagram.com/floreserdesenvolvimento"
+    "https://instagram.com/floreserdesenvolvimento",
+    "https://www.google.com/maps/place/Clinica+Floreser+Desenvolvimento",
+    "https://ul.waze.com/ul?place=ChIJ7yAulAfz3JQRUWW0Q3Q2A18"
   ]
 }
 </script>
 
+
 <head>
+    <style>
+		header {
+		  background-color: #fff;
+		  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+		}
+		.hero-title {
+		  font-size: 2rem;
+		  color: #333;
+		}
+		.btn-primary {
+		  background: #008B6F;
+		  color: #fff;
+		}
+    </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Clínica Floreser desenvolvimento e Aprendizagem em Piraquara - Psicologia,Psicologia Infantil, ABA, Neuropsicologia, Psicomotricidade e Psicopedagogia. Atendemos crianças, adolescentes e adultos na Região Metropolitana de Curitiba. Acolhendo sua jornada de desenvolvimento com ciência, sensibilidade e amor.">	
-    <meta name="keywords" content="psicologia, ABA, neuropsicologia, psicopedagogia, psicomotricidade, reforço escolar, orientação parental, Piraquara, Pinhais, Quatro Barras, PR, desenvolvimento, aprendizagem, clínica">
+    <meta name="description" content="Clínica Floreser desenvolvimento e Aprendizagem em Piraquara - Psicologia,Psicologia Infantil, ABA, Neuropsicologia, Psicomotricidade, Fonoaudiologia e Psicopedagogia. Atendemos crianças, adolescentes e adultos na Região Metropolitana de Curitiba. Acolhendo sua jornada de desenvolvimento com ciência, sensibilidade e amor.">	
+    <meta name="keywords" content="psicologia, ABA, neuropsicologia, psicopedagogia, psicomotricidade, reforço escolar, orientação parental, fonoaudiologia, Piraquara, Pinhais, Quatro Barras, PR, desenvolvimento, aprendizagem, clínica, Florescer">
     <meta name="author" content="Floreser Desenvolvimento e Aprendizagem">
     <meta name="robots" content="index, follow">
     
@@ -64,10 +117,12 @@
 	<meta property="og:type" content="website">
 	<meta property="og:url" content="https://clinicafloreser.netlify.app/">
 	<meta property="og:title" content="Floreser Desenvolvimento e Aprendizagem | Acolhendo sua Jornada de Desenvolvimento">
-	<meta property="og:description" content="Clínica especializada em Psicologia, ABA, Neuropsicologia, Psicopedagogia e Psicomotricidade em Piraquara-PR.">
+	<meta property="og:description" content="Clínica especializada em Psicologia, ABA, Neuropsicologia, Psicopedagogia, Fonoaudiologia e Psicomotricidade em Piraquara-PR.">
 	<meta property="og:image" content="https://clinicafloreser.netlify.app/assets/floreser-preview.png">
 	<meta property="og:locale" content="pt_BR">
-	
+	<meta property="og:site_name" content="Clínica Floreser - Psicologia e Desenvolvimento">
+    <meta property="og:locale:alternate" content="en_US"> 
+
 	<meta name="geo.region" content="BR-PR" />
 	<meta name="geo.placename" content="Piraquara" />
 	<meta name="geo.position" content="-25.4425;-49.0625" />
@@ -83,7 +138,7 @@
 	<meta name="twitter:description" content="Acolhendo sua jornada de desenvolvimento com ciência, sensibilidade e amor.">
 	<meta name="twitter:image" content="https://clinicafloreser.netlify.app/assets/floreser-preview.png">
     
-    <title>Floreser Desenvolvimento e Aprendizagem | Acolhendo sua Jornada de Desenvolvimento</title>
+    <title>Floreser Desenvolvimento e Aprendizagem | Acolhendo sua Jornada de Desenvolvimento - Clínica multidisciplinar focada em desenvolvimento humano.</title>
     
     <!-- Importação das fontes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -131,7 +186,7 @@
                     <li><a href="#equipe" class="nav-link">Equipe</a></li>
                     <li><a href="#contato" class="nav-link">Fale Conosco</a></li>
                     <li><a href="https://wa.me/5541987868813?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta%20na%20Floreser." target="_blank" class="btn btn-agendar">Agendar Consulta</a></li>
-                    <li><a href="https://instagram.com/floreserdesenvolvimento" target="_blank" class="instagram-link" title="Instagram">📷</a></li>
+                    <li><a href="https://instagram.com/floreserdesenvolvimento" target="_blank" class="instagram-link" title="Instagram da Clínica Floreser" aria-label="Instagram da Clínica Floreser">📷</a></li>
                 </ul>
                 <div class="hamburger" id="hamburger">
                     <span></span>
@@ -144,12 +199,12 @@
 
     <!-- Seção Hero --> 
 	<section id="inicio" class="hero">
-    <div class="hero-content"> 
-        <h1 class="hero-title">Clínica Floreser - Psicologia e Desenvolvimento</h1>
-        <p class="hero-subtitle">Onde cada fase da vida floresce com propósito</p>
-        <a href="#contato" class="btn btn-primary">Fale Conosco</a>
-    </div> 
-</section>
+		<div class="hero-content"> 
+			<h1 class="hero-title">Clínica Floreser - Psicologia e Desenvolvimento</h1>
+			<p class="hero-subtitle">Onde cada fase da vida floresce com propósito</p>
+			<a href="#contato" class="btn btn-primary">Fale Conosco</a>
+		</div> 
+	</section>
 
     <!-- Seção Sobre Nós -->
     <section id="sobre" class="about">
@@ -159,9 +214,7 @@
                 <div class="about-text">
 				    <p>Na <strong>Floreser Desenvolvimento e Aprendizagem</strong>, acreditamos no potencial único de cada pessoa. Somos uma <strong>clínica de psicologia em Piraquara</strong> que nasceu para <strong>acolher, compreender e nutrir sua jornada</strong>, valorizando o que há de mais bonito em cada fase da vida: o florescer.</p>
                     <p>Unimos o <strong>rigor da ciência</strong> à delicadeza da <strong>sensibilidade</strong> e ao calor do <strong>amor</strong>. Cada atendimento é guiado por um propósito claro: seu bem-estar e desenvolvimento integral. Atendemos <strong>Piraquara, Pinhais, Quatro Barras</strong> e <strong>Região</strong>.</p>
-                    <p>Com especialidades em <strong>desenvolvimento infantil, terapia ABA, avaliações neuropsicológicas e psicopedagógicas, fonoaudiologia e psicomotricidade</strong>, atendemos <strong>crianças, adolescentes e adultos</strong> com abordagens baseadas em evidências e cuidado humanizado.</p>
-                    <!-- <p>Acreditamos no potencial único de cada pessoa. Nosso espaço nasceu para <strong>acolher, compreender e nutrir sua jornada</strong>, valorizando o que há de mais bonito em cada fase da vida: o florescer.</p> -->
-                    <!-- <p>Na Floreser, unimos o <strong>rigor da ciência</strong> à delicadeza da <strong>sensibilidade</strong> e ao calor do <strong>amor</strong>. Cada atendimento é guiado por um propósito claro: o seu bem-estar e desenvolvimento integral.</p> -->
+                    <p>Com especialidades em <strong>desenvolvimento infantil, terapia ABA, avaliações neuropsicológicas e psicopedagógicas, fonoaudiologia e psicomotricidade</strong>, atendemos <strong>crianças, adolescentes e adultos</strong> com abordagens baseadas em evidências e cuidado humanizado.</p>                    
                 </div>
                 <div class="about-pillars">
                     <div class="pillar">
@@ -255,19 +308,7 @@
                     <h3>Suélen Fernandes de Andrade</h3>
                     <p class="member-role">Psicóloga | Neuropsicóloga | Psicopedagoga</p>
                     <p class="member-description">Especialista em Avaliação e Reabilitação Neuropsicológica.</p>
-                </div>
-                <!-- <div class="team-member"> -->
-                    <!-- <div class="member-photo">👩‍🏫</div> -->
-                    <!-- <h3>Profa. Mariana Costa</h3> -->
-                    <!-- <p class="member-role">Psicopedagoga</p> -->
-                    <!-- <p class="member-description">Especialista em Dificuldades de Aprendizagem e Reforço Escolar.</p> -->
-                <!-- </div> -->
-                <!-- <div class="team-member"> -->
-                    <!-- <div class="member-photo">🧑‍⚕️</div> -->
-                    <!-- <h3>Esp. Juliana Oliveira</h3> -->
-                    <!-- <p class="member-role">Terapeuta ABA</p> -->
-                    <!-- <p class="member-description">Especialista em Análise do Comportamento Aplicada (ABA) e Intervenção Precoce.</p> -->
-                <!-- </div> -->
+                </div> 
             </div>
         </div>
     </section>
@@ -293,7 +334,9 @@
 					  <p>Instagram: 
 						<a href="https://instagram.com/floreserdesenvolvimento" 
 						   target="_blank" 
-						   class="contact-link">@floreserdesenvolvimento</a>
+						   class="contact-link"
+						   title="Instagram da Clínica Floreser"
+                           aria-label="Instagram da Clínica Floreser">@floreserdesenvolvimento</a>
 					  </p>
 					</div>
                     <div class="contact-item">
@@ -339,11 +382,16 @@
                 </div>
                 <div class="footer-section">
                     <h3>Redes Sociais</h3>
-                    <p><a href="https://instagram.com/floreserdesenvolvimento" target="_blank" class="footer-link">📷 @floreserdesenvolvimento</a></p>
+                    <p><a href="https://instagram.com/floreserdesenvolvimento" target="_blank" class="footer-link" title="Instagram da Clínica Floreser" aria-label="Instagram da Clínica Floreser">📷 @floreserdesenvolvimento</a></p>
                 </div>
                 <div class="footer-section">
                     <h3>Localização</h3>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3603.7261234567!2d-49.0625!3d-25.4425!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDI2JzMzLjAiUyA0OcKwMDMnNDUuMCJX!5e0!3m2!1spt-BR!2sbr!4v1234567890" width="250" height="150" style="border:0; border-radius: 8px;" allowfullscreen="" loading="lazy"></iframe>
+                    <iframe 
+					    title="Localização da Clínica Floreser em Piraquara"
+						src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3603.7261234567!2d-49.0625!3d-25.4425!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDI2JzMzLjAiUyA0OcKwMDMnNDUuMCJX!5e0!3m2!1spt-BR!2sbr!4v1234567890" 
+						width="250" height="150" style="border:0; border-radius: 8px;" 
+						allowfullscreen="" loading="lazy">
+					</iframe>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -364,8 +412,10 @@
 			<p>Posso ajudar? Estamos Online.</p>
 		</a>
 	</div>
-
-    <script src="script.js"></script>
+    <div id="toast" class="toast">
+		<span>✓ Redirecionando para o WhatsApp...</span>
+	</div>
+    <script src="script.js" defer></script>
 </body>
 </html>
 
