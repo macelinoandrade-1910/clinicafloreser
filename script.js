@@ -2,6 +2,8 @@
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('navMenu');
 
+document.getElementById('year').textContent = new Date().getFullYear(); 
+
 hamburger.addEventListener('click', () => {
     navMenu.classList.toggle('active');
     
