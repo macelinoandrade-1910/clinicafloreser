@@ -176,15 +176,29 @@ window.addEventListener('scroll', () => {
 
 
 
-// Carousel functionality
-document.addEventListener('load', () => {
+// ==========================================================================
+// CAROUSEL FUNCTIONALITY - LAZY LOAD
+// ==========================================================================
+
+const carouselObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            initCarousel();
+            carouselObserver.unobserve(entry.target);
+        }
+    });
+}, { rootMargin: '100px' });
+
+function initCarousel() {
     const carouselTrack = document.querySelector('.carousel-track');
     const prevButton = document.querySelector('.carousel-button.prev');
     const nextButton = document.querySelector('.carousel-button.next');
     const carouselItems = document.querySelectorAll('.carousel-item');
 
+    if (!carouselTrack || !carouselItems.length) return;
+
     let currentIndex = 0;
-    let itemsPerPage = 3; // Default for desktop
+    let itemsPerPage = 3;
 
     const updateItemsPerPage = () => {
         if (window.innerWidth <= 768) {
@@ -196,13 +210,12 @@ document.addEventListener('load', () => {
         }
     };
  
-	const updateCarousel = () => {
-    const itemStyle = window.getComputedStyle(carouselItems[0]);
-    const gap = parseInt(itemStyle.marginRight) || 18; // pega o gap
-    const itemWidth = carouselItems[0].offsetWidth + gap;
-    carouselTrack.style.transform = `translateX(${-currentIndex * itemWidth}px)`;
-     };
-
+    const updateCarousel = () => {
+        const itemStyle = window.getComputedStyle(carouselItems[0]);
+        const gap = parseInt(itemStyle.marginRight) || 18;
+        const itemWidth = carouselItems[0].offsetWidth + gap;
+        carouselTrack.style.transform = `translateX(${-currentIndex * itemWidth}px)`;
+    };
 
     prevButton.addEventListener('click', () => {
         currentIndex = Math.max(0, currentIndex - 1);
@@ -216,14 +229,21 @@ document.addEventListener('load', () => {
 
     window.addEventListener('resize', () => {
         updateItemsPerPage();
-        currentIndex = 0; // Reset carousel position on resize
+        currentIndex = 0;
         updateCarousel();
     });
 
     updateItemsPerPage();
-    updateCarousel();
-});
+    updateCarousel(); 
+}
 
+// Observa a seção de serviços
+document.addEventListener('DOMContentLoaded', () => {
+    const servicesSection = document.getElementById('servicos');
+    if (servicesSection) {
+        carouselObserver.observe(servicesSection);
+    }
+});
 
 
 // Máscara de telefone para o campo de telefone
@@ -323,8 +343,7 @@ document.querySelectorAll('.btn-agendar, .wc_whatsapp, .btn-automation').forEach
             'event_category': 'conversion',
             'event_label': this.textContent?.trim() || 'WhatsApp Button',
             'value': 1
-        });
-        console.log('📱 WhatsApp tracked: ' + this.textContent?.trim());
+        }); 
     });
 });
 
@@ -359,8 +378,7 @@ if (contactForm) {
             'event_category': 'lead',
             'event_label': 'Contact Form', 
             'value': 1
-        });
-        console.log('📝 Form submission tracked');
+        }); 
     }, 0);
     
     // 4. FEEDBACK VISUAL (toast)
@@ -375,8 +393,7 @@ if (contactForm) {
         toast.classList.remove('show');
         
         // 🔥 LOG DE PERFORMANCE
-        const endTime = performance.now();
-        console.log(`⚡ Form processed in ${(endTime - startTime).toFixed(2)}ms`);
+        const endTime = performance.now(); 
     }, 3000);
 });
 }

@@ -7,13 +7,13 @@
   "name": "Clínica Floreser - Psicologia e Desenvolvimento",
   "alternateName": "Clínica Floreser Desenvolvimento e Aprendizagem",
   "description": "Clínica de psicologia em Piraquara especializada em Psicologia Infantil, ABA, Neuropsicologia, Psicopedagogia, Psicomotricidade, Musicalização e Fonoaudiologia.",
-  "image": "https://clinicafloreser.netlify.app/assets/logotipo.png", 
+  "image": "https://clinicafloreser.netlify.app/assets/logotipo.png",
   "url": "https://clinicafloreser.netlify.app/",
   "telephone": "+55-41-98786-8813",
   "priceRange": "$$",
   "medicalSpecialty": [
     "Psychotherapy",
-    "PediatricPsychotherapy", 
+    "PediatricPsychotherapy",
     "AppliedBehaviorAnalysis",
     "Neuropsychology",
     "Psychopedagogy",
@@ -65,7 +65,7 @@
       "@type": "Person",
       "name": "Fátima Rosa",
       "jobTitle": "Pedagoga e Psicopedagoga"
-    } 
+    }
   ],
   "openingHours": "Mo-Fr 08:00-18:00",
   "openingHoursSpecification": [
@@ -74,12 +74,44 @@
       "dayOfWeek": [
         "Monday",
         "Tuesday",
-        "Wednesday", 
+        "Wednesday",
         "Thursday",
         "Friday"
       ],
       "opens": "08:00",
       "closes": "18:00"
+    }
+  ],
+  "areaServed": [
+    {
+      "@type": "City",
+      "name": "Piraquara",
+      "containedIn": { "@type": "State", "name": "Paraná" }
+    },
+    {
+      "@type": "City",
+      "name": "Pinhais",
+      "containedIn": { "@type": "State", "name": "Paraná" }
+    },
+    {
+      "@type": "City",
+      "name": "Quatro Barras",
+      "containedIn": { "@type": "State", "name": "Paraná" }
+    },
+    {
+      "@type": "City",
+      "name": "Curitiba",
+      "containedIn": { "@type": "State", "name": "Paraná" }
+    },
+    {
+      "@type": "City",
+      "name": "São José dos Pinhais",
+      "containedIn": { "@type": "State", "name": "Paraná" }
+    },
+    {
+      "@type": "City",
+      "name": "Campina Grande do Sul",
+      "containedIn": { "@type": "State", "name": "Paraná" }
     }
   ],
   "sameAs": [
@@ -89,6 +121,7 @@
   ]
 }
 </script>
+
 
 
 <head>
@@ -174,11 +207,15 @@
     <header class="header">
         <nav class="navbar">
             <div class="container">
-                <div class="logo">
-				  <a href="#inicio">
-                    <img src="assets/logotipo.png" alt="Logotipo da clinica Floreser Desenvolvimento e Aprendizagem em Piraquara" class="logo-img">
-		          </a>			
-                </div> 
+                <div class="logo" itemscope itemtype="https://schema.org/Organization">
+					<a href="#inicio" itemprop="url">
+						<img src="assets/logotipo.png" 
+							 alt="Clínica Floreser" 
+							 itemprop="logo"
+							 class="logo-img">
+						<meta itemprop="name" content="Clínica Floreser Desenvolvimento e Aprendizagem">
+					</a>
+				</div>
                 <ul class="nav-menu" id="navMenu">
                     <li><a href="#inicio" class="nav-link">Ínicio</a></li>
                     <li><a href="#sobre" class="nav-link">Sobre Nós</a></li>
@@ -274,6 +311,11 @@
                         <h3>Avaliação Neuropsicológica</h3>
                         <p>Compreendendo e otimizando funções cognitivas</p>
                     </div>
+					<div class="service-card carousel-item">
+						<div class="service-icon" aria-hidden="true">🎵</div>
+						<h3>Musicalização</h3>
+						<p>Desenvolvendo habilidades cognitivas e emocionais através da música</p>
+					</div>
                     <div class="service-card carousel-item">
                         <div class="service-icon" aria-hidden="true">🤸</div>
                         <h3>Psicomotricidade</h3>
@@ -396,7 +438,7 @@
                     <h3>Localização</h3> 
 					<iframe 
 						title="Localização da Clínica Floreser em Piraquara"
-						src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d230554.0358027451!2d-49.24669647039499!3d-25.458088111677558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dcf307942e20ef%3A0x5f03367443b46551!2sClinica%20Floreser%20Desenvolvimento!5e0!3m2!1spt-BR!2sbr!4v1762342517907!5m2!1spt-BR!2sbr" 
+						data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d230554.0358027451!2d-49.24669647039499!3d-25.458088111677558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dcf307942e20ef%3A0x5f03367443b46551!2sClinica%20Floreser%20Desenvolvimento!5e0!3m2!1spt-BR!2sbr!4v1762342517907!5m2!1spt-BR!2sbr" 
 						width="250" 
 						height="150" 
 						style="border:0;" 
@@ -410,8 +452,7 @@
 			  <p>&copy; <span id="year"></span> Macelino Andrade. Todos os direitos reservados.</p>
 			</div>
         </div>
-    </footer>
-    </footer>
+    </footer> 
 	
 	<!-- WhatsApp Widget Inteligente -->
 	<div class="wc_whatsapp_app right">
