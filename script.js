@@ -316,20 +316,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Carregar mapa apenas quando visível
 const mapObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const iframe = entry.target;
-            iframe.src = iframe.dataset.src;
-            mapObserver.unobserve(iframe);
-        }
-    });
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const iframe = entry.target;
+      if (iframe.dataset.src) {
+        iframe.src = iframe.dataset.src;
+      }
+      mapObserver.unobserve(iframe);
+    }
+  });
 });
 
-const mapIframe = document.querySelector('iframe');
+const mapIframe = document.querySelector('iframe[data-src]');
 if (mapIframe) {
-    mapIframe.dataset.src = mapIframe.src;
-    mapIframe.src = '';
-    mapObserver.observe(mapIframe);
+  mapObserver.observe(mapIframe);
 }
 
 // ==========================================================================
