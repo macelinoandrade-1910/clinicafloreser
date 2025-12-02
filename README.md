@@ -3,7 +3,7 @@
 Site institucional desenvolvido para a Floreser Desenvolvimento e Aprendizagem, clínica especializada em Psicologia, ABA, Neuropsicologia, Psicopedagogia e serviços de desenvolvimento.
 
 ## 🌐 Demo
-**URL:** https://clinicafloreser.netlify.app/
+**URL:** https://floreserdesenvolvimento.com.br/
 
 ## 🎯 Características Técnicas
 
