@@ -62,3 +62,80 @@
 .blog-read-more:hover {
   text-decoration: underline;
 }
+
+/* ===== ARTIGO (MODO LEITURA) ===== */
+
+.article {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+  line-height: 1.8;
+}
+
+.article h1 {
+  font-family: var(--fonte-titulo);
+  font-size: 2.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.article h2 {
+  font-family: var(--fonte-titulo);
+  margin-top: 2.5rem;
+  margin-bottom: 0.6rem;
+}
+
+.article p {
+  font-size: 1.05rem;
+  color: #444;
+  margin-bottom: 1.2rem;
+}
+
+.article-meta {
+  font-size: 0.85rem;
+  color: #888;
+  margin-bottom: 2rem;
+}
+
+/* ===== BREADCRUMB ===== */
+
+.breadcrumb {
+  font-size: 0.85rem;
+  margin-bottom: 1.5rem;
+}
+
+.breadcrumb a {
+  color: var(--cor-principal);
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+/* ===== CTA DO ARTIGO ===== */
+
+.article-cta {
+  margin-top: 3.5rem;
+  padding: 2rem;
+  background: #f6f9f7;
+  border-radius: 16px;
+  text-align: center;
+}
+
+.article-cta h3 {
+  margin-bottom: 0.5rem;
+}
+
+.article-cta {
+  margin-top: 3rem;
+  padding: 2rem;
+  background: #f6f9f7;
+  border-radius: 12px;
+
+  /* ESSENCIAL */
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+
+  text-align: center;
+}
