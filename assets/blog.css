@@ -70,6 +70,8 @@
   margin: 0 auto;
   padding: 3rem 1.5rem;
   line-height: 1.8;
+  background: var(--cinza-claro);
+  border-radius: 20px;
 }
 
 .article h1 {
@@ -117,9 +119,27 @@
 .article-cta {
   margin-top: 3.5rem;
   padding: 2rem;
-  background: #f6f9f7;
   border-radius: 16px;
   text-align: center;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.article-cta.psicologia {
+  background: var(--rosa-pastel);
+}
+
+.article-cta.psicopedagogia {
+  background: var(--lilas-pastel);
+}
+
+.article-cta.aba {
+  background: var(--azul-pastel);
+}
+
+.article-cta.neuro {
+  background: var(--verde-pastel);
 }
 
 .article-cta h3 {
