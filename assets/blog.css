@@ -159,3 +159,15 @@
 
   text-align: center;
 }
+
+/* Fundo geral da página do blog */
+body.blog-page {
+  background-color: var(--cinza-claro);
+}
+
+/* Card central */
+.blog-list {
+  background: var(--branco);
+  border-radius: 16px;
+  box-shadow: var(--shadow-soft);
+}
