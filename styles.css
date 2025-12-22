@@ -1041,28 +1041,4 @@ img[loading="lazy"].loaded {
     transform: translateX(-50%) translateY(0);
 } 
  
- /*BLOG*/
-.blog-index .post-card {
-  margin: 2rem 0;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid #eee;
-}
-
-.blog-post h1 {
-  margin-bottom: 0.5rem;
-}
-
-.post-meta {
-  font-size: 0.9rem;
-  color: #777;
-  margin-bottom: 2rem;
-}
-
-.cta-box {
-  margin-top: 3rem;
-  padding: 2rem;
-  background: #f6f9f7;
-  border-radius: 12px;
-  text-align: center;
-}
  
