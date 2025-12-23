@@ -1,166 +1,180 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <style>
-		header {
-		  background-color: #fff;
-		  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-		}
-		.hero-title {
-		  font-size: 2rem;
-		  color: #333;
-		}
-		.btn-primary {
-		  background: #008B6F;
-		  color: #fff;
-		}
-    </style>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Blog | Clínica Floreser – Psicologia e Desenvolvimento</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.cdnfonts.com/css/dreaming-outloud-script" rel="stylesheet">
-  
-  <meta name="description" content="Artigos sobre psicologia infantil, desenvolvimento emocional e orientação parental. Conteúdo produzido pela Clínica Floreser em Piraquara." />
-
-  <link rel="canonical" href="https://www.floreserdesenvolvimento.com.br/blog.html" />
-    
-  <!-- Open Graph -->
-  <meta property="og:title" content="Blog | Clínica Floreser" />
-  <meta property="og:description" content="Conteúdos sobre psicologia infantil, ABA e desenvolvimento emocional." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.floreserdesenvolvimento.com.br/blog.html" />
-  <meta property="og:image" content="https://www.floreserdesenvolvimento.com.br/assets/og-blog.png" />
-
-  <!-- CSS principal do site -->
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="/assets/blog.css">
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="/icons/favicon.png" />
-</head>
-
-<body class="blog-page">
-  <!-- Header (o mesmo do index.html) -->
-  <header class="header">
-    <nav class="navbar">
-      <div class="container">
-       <div class="logo" itemscope itemtype="https://schema.org/Organization">
-			<a href="/" itemprop="url">
-				<img src="assets/logotipo.png" 
-					 alt="Clínica Floreser" 
-					 itemprop="logo"
-					 class="logo-img">
-				<meta itemprop="name" content="Clínica Floreser Desenvolvimento e Aprendizagem">
-			</a>
-		</div>
-
-        <ul class="nav-menu" id="navMenu">
-          <li><a href="/" class="nav-link">Início</a></li>
-          <li><a href="/#sobre" class="nav-link">Sobre Nós</a></li>
-          <li><a href="/#servicos" class="nav-link">Serviços</a></li>
-          <li><a href="/#equipe" class="nav-link">Equipe</a></li>
-          <li><a href="/blog.html" class="nav-link">Blog</a></li>
-          <li><a href="https://wa.me/5541987868813?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta%20na%20Floreser." target="_blank" class="btn btn-agendar">Agendar Consulta</a></li>
-		  <li><a href="https://instagram.com/floreserdesenvolvimento" target="_blank" class="instagram-link" title="Instagram da Clínica Floreser" aria-label="Instagram da Clínica Floreser">📷</a></li>
-        </ul>
-      </div>
-    </nav>
-  </header>
-
-  <!-- Conteúdo principal -->
-  <main class="container blog-list">
-    <h1>Blog da Clínica Floreser</h1>
-    <p class="blog-intro">
-      Conteúdos informativos sobre psicologia, desenvolvimento infantil,
-      orientação parental e saúde emocional.
-    </p>
-    <!-- Artigo 1 -->
-	<article class="blog-card">
-      <h2>
-        <a href="/blog/quando-procurar-psicologo-infantil.html">
-          Quando procurar um psicólogo infantil?
-        </a>
-      </h2>
-      <p class="blog-meta">
-        Publicado em 22/12/2025 · Psicologia Infantil
-      </p>
-      <p class="blog-excerpt">
-        Entenda os sinais emocionais e comportamentais que indicam a hora
-        de buscar apoio psicológico para crianças.
-      </p>
-      <a href="/blog/quando-procurar-psicologo-infantil.html"
-         class="blog-read-more">
-        Ler artigo →
-      </a>
-    </article>    
-	<!-- Artigo 2-->
-    <article class="blog-card">
-	  <h2>
-		<a href="/blog/o-que-e-psicopedagogia.html">
-		  O que é Psicopedagogia e quando procurar?
-		</a>
-	  </h2>
-	  <p class="blog-meta">
-		Publicado em 25/11/2025 · Psicopedagogia
-	  </p>
-	  <p class="blog-excerpt">
-		Entenda como a psicopedagogia auxilia no processo de aprendizagem
-		e quando buscar esse acompanhamento especializado.
-	  </p>
-	  <a href="/blog/o-que-e-psicopedagogia.html"
-		 class="blog-read-more">
-		Ler artigo →
-	  </a>
-	</article>     
-  </main>
-	<footer class="footer">
-        <div class="container">
+   <head>
+      <style>
+         header {
+         background-color: #fff;
+         box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+         }
+         .hero-title {
+         font-size: 2rem;
+         color: #333;
+         }
+         .btn-primary {
+         background: #008B6F;
+         color: #fff;
+         }
+      </style>
+      <script type="application/ld+json">
+         {
+           "@context": "https://schema.org",
+           "@type": "Blog",
+           "name": "Blog da Clínica Floreser",
+           "description": "Artigos sobre psicologia infantil, desenvolvimento emocional e orientação parental",
+           "url": "https://www.floreserdesenvolvimento.com.br/blog.html",
+           "publisher": {
+         	"@type": "Organization",
+         	"name": "Clínica Floreser Desenvolvimento e Aprendizagem",
+         	"logo": {
+         	  "@type": "ImageObject",
+         	  "url": "https://www.floreserdesenvolvimento.com.br/assets/logotipo.png"
+         	}
+           }
+         }
+      </script>	
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Blog | Clínica Floreser – Psicologia e Desenvolvimento</title>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap" rel="stylesheet">
+      <link href="https://fonts.cdnfonts.com/css/dreaming-outloud-script" rel="stylesheet">
+      <meta name="description" content="Blog da Clínica Floreser: artigos especializados sobre psicologia infantil, ABA, fonoaudiologia e desenvolvimento. Especialistas em Piraquara compartilhando conhecimento.">
+      <link rel="canonical" href="https://www.floreserdesenvolvimento.com.br/blog.html" />
+      <!-- Open Graph -->
+      <meta property="og:title" content="Blog | Clínica Floreser" />
+      <meta property="og:description" content="Conteúdos sobre psicologia infantil, ABA e desenvolvimento emocional." />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content="https://www.floreserdesenvolvimento.com.br/blog.html" />
+      <meta property="og:image" content="https://www.floreserdesenvolvimento.com.br/assets/og-blog.png" />
+      <!-- CSS principal do site -->
+      <link rel="stylesheet" href="styles.css" />
+      <link rel="stylesheet" href="/assets/blog.css">
+      <!-- Favicon -->
+      <link rel="icon" type="image/png" href="/icons/favicon.png" />
+   </head>
+   <body class="blog-page">
+      <!-- Header (o mesmo do index.html) -->
+      <header class="header">
+         <nav class="navbar">
+            <div class="container">
+               <div class="logo" itemscope itemtype="https://schema.org/Organization">
+                  <a href="/" itemprop="url">
+                     <img src="assets/logotipo.png" 
+                        alt="Clínica Floreser" 
+                        itemprop="logo"
+                        class="logo-img">
+                     <meta itemprop="name" content="Clínica Floreser Desenvolvimento e Aprendizagem">
+                  </a>
+               </div>
+               <ul class="nav-menu" id="navMenu">
+                  <li><a href="/" class="nav-link">Início</a></li>
+                  <li><a href="/#sobre" class="nav-link">Sobre Nós</a></li>
+                  <li><a href="/#servicos" class="nav-link">Serviços</a></li>
+                  <li><a href="/#equipe" class="nav-link">Equipe</a></li>
+                  <li><a href="/blog.html" class="nav-link">Blog</a></li>
+                  <li><a href="https://wa.me/5541987868813?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta%20na%20Floreser." target="_blank" class="btn btn-agendar">Agendar Consulta</a></li>
+                  <li><a href="https://instagram.com/floreserdesenvolvimento" target="_blank" class="instagram-link" title="Instagram da Clínica Floreser" aria-label="Instagram da Clínica Floreser">📷</a></li>
+               </ul>
+            </div>
+         </nav>
+      </header>
+      <!-- Conteúdo principal -->
+      <main class="container blog-list">
+	     <nav class="breadcrumb">
+			<a href="/">Início</a> ›
+			<span>Blog</span>
+		 </nav>
+         <h1>Blog da Clínica Floreser</h1>
+         <p class="blog-intro">
+            Conteúdos informativos sobre psicologia, desenvolvimento infantil,
+            orientação parental e saúde emocional.
+         </p>
+         <!-- Artigo 1 -->
+         <article class="blog-card">
+            <h2>
+               <a href="/blog/quando-procurar-psicologo-infantil.html">
+               Quando procurar um psicólogo infantil?
+               </a>
+            </h2>
+            <p class="blog-meta">
+               Publicado em 22/12/2025 · Psicologia Infantil
+            </p>
+            <p class="blog-excerpt">
+               Entenda os sinais emocionais e comportamentais que indicam a hora
+               de buscar apoio psicológico para crianças.
+            </p>
+            <a href="/blog/quando-procurar-psicologo-infantil.html"
+               class="blog-read-more">
+            Ler artigo →
+            </a>
+         </article>
+         <!-- Artigo 2-->
+         <article class="blog-card">
+            <h2>
+               <a href="/blog/o-que-e-psicopedagogia.html">
+               O que é Psicopedagogia e quando procurar?
+               </a>
+            </h2>
+            <p class="blog-meta">
+               Publicado em 25/11/2025 · Psicopedagogia
+            </p>
+            <p class="blog-excerpt">
+               Entenda como a psicopedagogia auxilia no processo de aprendizagem
+               e quando buscar esse acompanhamento especializado.
+            </p>
+            <a href="/blog/o-que-e-psicopedagogia.html"
+               class="blog-read-more">
+            Ler artigo →
+            </a>
+         </article>
+      </main>
+      <footer class="footer">
+         <div class="container">
             <div class="footer-content">
-                <div class="footer-section">
-					<picture>
-						<source srcset="assets/contatos.webp" type="image/webp">
-						<img src="assets/contatos.png" 
-							 alt="Contatos da Clínica Floreser Desenvolvimento e Aprendizagem" 
-							 class="footer-logo-img" 
-							 loading="lazy"
-							 width="auto"
-							 height="auto">
-					</picture>					
-					<p>Acolhendo sua jornada de desenvolvimento com ciência, sensibilidade e amor.</p>
-				</div>
-                <div class="footer-section">
-                    <h3>Contato</h3>
-                    <p>📍 Rua Eliseu José Hipólito, 263 Sala 07 | Centro, Piraquara - PR</p>
-                    <p>📱 WhatsApp: <a href="https://wa.me/5541987868813?text=Olá!%20Gostaria%20de%20informações%20sobre%20a%20Floreser." target="_blank" class="footer-link">(41) 98786-8813</a></p>
-                    <p>📧 E-mail: <a href="mailto:clinica.floreserdesenvolvimento@gmail.com" class="footer-link">clinica.floreserdesenvolvimento@gmail.com</a></p>
-                    <p>⏰ Segunda a Sexta: 08h às 18h</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Redes Sociais</h3>
-                    <p><a href="https://instagram.com/floreserdesenvolvimento" target="_blank" class="footer-link" title="Instagram da Clínica Floreser" aria-label="Instagram da Clínica Floreser">📷 @floreserdesenvolvimento</a></p>
-                </div>
-                <div class="footer-section">
-                    <h3>Localização</h3> 
-					<iframe 
-						title="Localização da Clínica Floreser em Piraquara"
-						src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d230554.0358027451!2d-49.24669647039499!3d-25.458088111677558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dcf307942e20ef%3A0x5f03367443b46551!2sClinica%20Floreser%20Desenvolvimento!5e0!3m2!1spt-BR!2sbr!4v1762342517907!5m2!1spt-BR!2sbr" 
-						width="250" 
-						height="150" 
-						style="border:0;" 
-						allowfullscreen=""  
-						referrerpolicy="no-referrer-when-downgrade">
-					</iframe>
-                </div>
+               <div class="footer-section">
+                  <picture>
+                     <source srcset="assets/contatos.webp" type="image/webp">
+                     <img src="assets/contatos.png" 
+                        alt="Contatos da Clínica Floreser Desenvolvimento e Aprendizagem" 
+                        class="footer-logo-img" 
+                        loading="lazy"
+                        width="auto"
+                        height="auto">
+                  </picture>
+                  <p>Acolhendo sua jornada de desenvolvimento com ciência, sensibilidade e amor.</p>
+               </div>
+               <div class="footer-section">
+                  <h3>Contato</h3>
+                  <p>📍 Rua Eliseu José Hipólito, 263 Sala 07 | Centro, Piraquara - PR</p>
+                  <p>📱 WhatsApp: <a href="https://wa.me/5541987868813?text=Olá!%20Gostaria%20de%20informações%20sobre%20a%20Floreser." target="_blank" class="footer-link">(41) 98786-8813</a></p>
+                  <p>📧 E-mail: <a href="mailto:clinica.floreserdesenvolvimento@gmail.com" class="footer-link">clinica.floreserdesenvolvimento@gmail.com</a></p>
+                  <p>⏰ Segunda a Sexta: 08h às 18h</p>
+               </div>
+               <div class="footer-section">
+                  <h3>Redes Sociais</h3>
+                  <p><a href="https://instagram.com/floreserdesenvolvimento" target="_blank" class="footer-link" title="Instagram da Clínica Floreser" aria-label="Instagram da Clínica Floreser">📷 @floreserdesenvolvimento</a></p>
+               </div>
+               <div class="footer-section">
+                  <h3>Localização</h3>
+                  <iframe 
+                     title="Localização da Clínica Floreser em Piraquara"
+                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d230554.0358027451!2d-49.24669647039499!3d-25.458088111677558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dcf307942e20ef%3A0x5f03367443b46551!2sClinica%20Floreser%20Desenvolvimento!5e0!3m2!1spt-BR!2sbr!4v1762342517907!5m2!1spt-BR!2sbr" 
+                     width="250" 
+                     height="150" 
+                     style="border:0;" 
+                     allowfullscreen=""  
+                     referrerpolicy="no-referrer-when-downgrade">
+                  </iframe>
+               </div>
             </div>
             <div class="footer-bottom">
-			  <p>&copy; <span id="year"></span> Macelino Andrade. Todos os direitos reservados.</p>
-			</div>
-        </div>
-    </footer>  
-</body>
+               <p>&copy; <span id="year"></span> Macelino Andrade. Todos os direitos reservados.</p>
+            </div>
+         </div>
+      </footer>
+      <script>    
+         document.getElementById('year').textContent = new Date().getFullYear();
+      </script>
+   </body>
 </html>
-

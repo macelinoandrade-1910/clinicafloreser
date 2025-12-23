@@ -171,3 +171,129 @@ body.blog-page {
   border-radius: 16px;
   box-shadow: var(--shadow-soft);
 }
+
+/* Estilos para a lista de sinais */
+.signs-list {
+    list-style: none;
+    padding: 0;
+    margin: 25px 0 30px 0;
+    counter-reset: sign-counter;
+}
+
+.signs-list li {
+    counter-increment: sign-counter;
+    padding: 15px 15px 15px 50px;
+    margin-bottom: 12px;
+    background: #f8f9fa;
+    border-left: 4px solid #008B6F;
+    border-radius: 0 8px 8px 0;
+    position: relative;
+    font-size: 1.05rem;
+    line-height: 1.5; 
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.signs-list li::before {
+    content: counter(sign-counter);
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #008B6F;
+    color: white;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.signs-list li:hover {
+    transform: translateX(4px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+}
+
+.signs-list strong {
+    color: #2c3e50;
+	font-weight: 700;
+}
+ 
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 768px) {
+	
+	.professional-note {
+        padding: 1.5rem;
+        margin: 2rem 0;
+    }
+	
+    .blog-list,
+    .article {
+        padding: 2rem 1rem;
+    }
+    
+    .blog-list h1,
+    .article h1 {
+        font-size: 1.8rem;
+    }
+    
+    .article h2 {
+        font-size: 1.5rem;
+        margin-top: 2rem;
+    }
+    
+    .article-cta {
+        padding: 1.5rem;
+        margin: 2.5rem auto;
+    }
+    
+    .signs-list li {
+        padding: 12px 12px 12px 45px;
+        font-size: 1rem;
+    }
+    
+    .signs-list li::before {
+        width: 22px;
+        height: 22px;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .blog-card h2 {
+        font-size: 1.3rem;
+    }
+    
+    .article {
+        padding: 1.5rem 1rem;
+        border-radius: 12px;
+    }
+}
+
+/* ===== NOTA PROFISSIONAL ===== */
+.professional-note {
+    margin: 2.5rem 0;
+    padding: 1.8rem;
+    background: #f0f9ff;
+    border-left: 4px solid #008B6F;
+    border-radius: 0 8px 8px 0;
+}
+
+.professional-note h3 {
+    color: #008B6F;
+    margin-top: 0;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.professional-note p {
+    color: #2c3e50;
+    margin-bottom: 0;
+    font-size: 1.05rem;
+    line-height: 1.6;
+} 
