@@ -297,3 +297,23 @@ body.blog-page {
     font-size: 1.05rem;
     line-height: 1.6;
 } 
+
+.content-review {
+  background: var(--cinza-claro);
+  border-left: 4px solid var(--verde-pastel);
+  padding: 0.8rem 1rem;
+  margin: 1rem 0 1.5rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.content-review strong {
+  display: block;
+  color: var(--texto-escuro);
+  margin-bottom: 0.3rem;
+}
+
+.content-review p {
+  margin: 0;
+  color: #555;
+}
