@@ -248,7 +248,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Máscara de telefone para o campo de telefone
 const phoneInput = document.getElementById('phone');
-
+if(phoneInput){
 phoneInput.addEventListener('input', (e) => {
     let value = e.target.value.replace(/\D/g, ''); // Remove tudo que não é dígito
     
@@ -262,7 +262,7 @@ phoneInput.addEventListener('input', (e) => {
     
     e.target.value = value;
 });
-
+}
 // WhatsApp Widget Inteligente
 document.addEventListener('DOMContentLoaded', function() {
     const whatsappWidget = document.querySelector('.wc_whatsapp_app');
