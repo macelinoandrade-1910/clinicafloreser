@@ -80,54 +80,74 @@
          </nav>
       </header>
       <!-- Conteúdo principal -->
-      <main class="container blog-list">
-	     <nav class="breadcrumb">
-			<a href="/">Início</a> ›
-			<span>Blog</span>
-		 </nav>
-         <h1>Blog da Clínica Floreser</h1>
-         <p class="blog-intro">
-            Conteúdos informativos sobre psicologia, desenvolvimento infantil,
-            orientação parental e saúde emocional.
-         </p>
-         <!-- Artigo 1 -->
-         <article class="blog-card">
-            <h2>
-               <a href="/blog/quando-procurar-psicologo-infantil.html">
-               Quando procurar um psicólogo infantil?
+      <main class="container blog-list">       
+		<nav class="breadcrumb">
+		   <a href="/">Início</a> ›
+		   <span>Blog</span>
+		</nav>
+		<h1>Blog da Clínica Floreser</h1>
+		<p class="blog-intro">
+		   Conteúdos informativos sobre psicologia, desenvolvimento infantil,
+		   orientação parental e saúde emocional.
+		</p>
+        <section class="blog-grid" aria-label="Lista de artigos do blog">
+            <!-- Artigo 1 -->
+            <article class="blog-card">
+               <a href="/blog/quando-procurar-psicologo-infantil.html" class="blog-image">
+               <img 
+				  src="/assets/psicopedagogia-infantil.webp"
+				  alt="Quando procurar um psicólogo infantil"
+				  width="1200"
+				  height="630"
+				  loading="lazy">
                </a>
-            </h2>
-            <p class="blog-meta">
-               Publicado em 22/12/2025 · Psicologia Infantil
-            </p>
-            <p class="blog-excerpt">
-               Entenda os sinais emocionais e comportamentais que indicam a hora
-               de buscar apoio psicológico para crianças.
-            </p>
-            <a href="/blog/quando-procurar-psicologo-infantil.html"
-               class="blog-read-more">
-            Ler artigo →
-            </a>
-         </article>
-         <!-- Artigo 2-->
-         <article class="blog-card">
-            <h2>
-               <a href="/blog/o-que-e-psicopedagogia.html">
-               O que é Psicopedagogia e quando procurar?
+               <div class="blog-content">
+                  <span class="blog-category">Psicologia Infantil</span>
+                  <h2>
+                     <a href="/blog/quando-procurar-psicologo-infantil.html">
+                     Quando procurar um psicólogo infantil?
+                     </a>
+                  </h2>
+                  <p class="blog-meta">Publicado em 22/12/2025</p>
+                  <p class="blog-excerpt">
+                     Entenda os sinais emocionais e comportamentais que indicam a hora
+                     de buscar apoio psicológico para crianças.
+                  </p>
+                  <a href="/blog/quando-procurar-psicologo-infantil.html"
+                     class="blog-read-more">
+                  Ler artigo →
+                  </a>
+               </div>
+            </article>
+            <!-- Artigo 2-->
+            <article class="blog-card">
+               <a href="/blog/o-que-e-psicopedagogia.html" class="blog-image">
+               <img 
+                  src="/assets/psicologo-infantil.webp" 
+                  alt="O que é psicopedagogia e quando procurar"
+				  width="1200"
+                  height="630"
+                  loading="lazy">
                </a>
-            </h2>
-            <p class="blog-meta">
-               Publicado em 25/11/2025 · Psicopedagogia
-            </p>
-            <p class="blog-excerpt">
-               Entenda como a psicopedagogia auxilia no processo de aprendizagem
-               e quando buscar esse acompanhamento especializado.
-            </p>
-            <a href="/blog/o-que-e-psicopedagogia.html"
-               class="blog-read-more">
-            Ler artigo →
-            </a>
-         </article>
+               <div class="blog-content">
+                  <span class="blog-category">Psicopedagogia</span>
+                  <h2>
+                     <a href="/blog/o-que-e-psicopedagogia.html">
+                     O que é Psicopedagogia e quando procurar?
+                     </a>
+                  </h2>
+                  <p class="blog-meta">Publicado em 25/11/2025</p>
+                  <p class="blog-excerpt">
+                     Entenda como a psicopedagogia auxilia no processo de aprendizagem
+                     e quando buscar esse acompanhamento especializado.
+                  </p>
+                  <a href="/blog/o-que-e-psicopedagogia.html"
+                     class="blog-read-more">
+                  Ler artigo →
+                  </a>
+               </div>
+            </article>
+         </section>
       </main>
       <footer class="footer">
          <div class="container">
@@ -176,7 +196,7 @@
       <script>    
          document.getElementById('year').textContent = new Date().getFullYear();
       </script>
-	  <!-- SCRIPT principal -->
-	  <script src="/script.js" defer></script>
+      <!-- SCRIPT principal -->
+      <script src="/script.js" defer></script>
    </body>
 </html>

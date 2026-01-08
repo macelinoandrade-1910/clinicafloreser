@@ -128,34 +128,35 @@ body {
 /* Seção Hero */
 .hero {
     background: linear-gradient(135deg, var(--rosa-pastel) 0%, var(--lilas-pastel) 50%, var(--azul-pastel) 100%);
-    min-height: 90vh;
+    min-height: calc(100vh - 90px); /* altura média do header */
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     position: relative;
     overflow: hidden;
-    padding: 4rem 20px;
+    padding: 3rem 20px;
 }
 
 .hero-content {
     z-index: 2;
-    max-width: 800px;
+    max-width: 900px;
+    padding-bottom: 1rem;
 }
 
 .hero-title {
     font-family: var(--fonte-titulo);
-    font-size: 3.5rem;
+    font-size: clamp(2.2rem, 4vw, 3.2rem);
+    line-height: 1.15;
     color: var(--dourado);
     margin-bottom: 1rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-    animation: fadeInUp 1s ease;
 }
 
 .hero-subtitle {
-    font-size: 1.5rem;
-    color: var(--texto-escuro);
-    margin-bottom: 2rem;
+    font-size: clamp(1rem, 1.4vw, 1.3rem);
+    margin-bottom: 1.5rem;
+    color: var(--texto-escuro); 
     font-weight: 300;
     animation: fadeInUp 1s ease 0.2s backwards;
 }
@@ -509,6 +510,13 @@ body {
     color: var(--cinza-medio);
 }
 
+.member-crp {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--cinza-medio);
+    margin: 0.3rem 0 0.6rem;
+}
+
 /* Responsividade */
 @media (max-width: 768px) {
     .hamburger {
@@ -541,13 +549,16 @@ body {
     .nav-menu.active {
         transform: translateX(0);
     }
-    
+	.hero {
+        padding: 2.5rem 20px;
+        min-height: calc(100vh - 80px);
+    }    
     .hero-title {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
     }
     
     .hero-subtitle {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
     
     .section-title {

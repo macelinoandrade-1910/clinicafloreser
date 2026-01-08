@@ -1,9 +1,18 @@
-/* ===== BLOG LIST ===== */
+/* =========================================================
+   BLOG – LISTAGEM
+========================================================= */
+
+body.blog-page {
+  background-color: var(--cinza-claro);
+}
 
 .blog-list {
-  max-width: 860px;
+  max-width: 1100px;
   margin: 0 auto;
   padding: 3rem 1.5rem;
+  background: var(--branco);
+  border-radius: 16px;
+  box-shadow: var(--shadow-soft);
 }
 
 .blog-list h1 {
@@ -18,18 +27,58 @@
   margin-bottom: 2.5rem;
 }
 
-/* ===== CARD DO ARTIGO ===== */
+/* GRID DOS ARTIGOS */
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+/* CARD DO ARTIGO */
 
 .blog-card {
-  margin-bottom: 2.5rem;
-  padding-bottom: 1.5rem;
-  border-bottom: 1px solid #eee;
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.blog-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+}
+
+/* IMAGEM DO ARTIGO */
+
+.blog-image img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* CONTEÚDO DO CARD */
+
+.blog-content {
+  padding: 1.5rem;
+  flex: 1;
+}
+
+.blog-category {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--cor-principal);
+  margin-bottom: 0.5rem;
 }
 
 .blog-card h2 {
   font-family: var(--fonte-titulo);
-  font-size: 1.5rem;
-  margin-bottom: 0.3rem;
+  font-size: 1.4rem;
+  margin-bottom: 0.4rem;
 }
 
 .blog-card h2 a {
@@ -42,18 +91,20 @@
 }
 
 .blog-meta {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: #888;
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.7rem;
 }
 
 .blog-excerpt {
-  margin-bottom: 0.8rem;
+  font-size: 0.95rem;
   line-height: 1.6;
   color: #444;
+  margin-bottom: 1rem;
 }
 
 .blog-read-more {
+  margin-top: auto;
   font-weight: 600;
   color: var(--cor-principal);
   text-decoration: none;
@@ -63,7 +114,27 @@
   text-decoration: underline;
 }
 
-/* ===== ARTIGO (MODO LEITURA) ===== */
+/* =========================================================
+   BREADCRUMB
+========================================================= */
+
+.breadcrumb {
+  font-size: 0.85rem;
+  margin-bottom: 1.5rem;
+}
+
+.breadcrumb a {
+  color: var(--cor-principal);
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+/* =========================================================
+   ARTIGO – MODO LEITURA
+========================================================= */
 
 .article {
   max-width: 760px;
@@ -80,6 +151,12 @@
   margin-bottom: 0.5rem;
 }
 
+.article-meta {
+  font-size: 0.85rem;
+  color: #888;
+  margin-bottom: 2rem;
+}
+
 .article h2 {
   font-family: var(--fonte-titulo);
   margin-top: 2.5rem;
@@ -92,228 +169,112 @@
   margin-bottom: 1.2rem;
 }
 
-.article-meta {
-  font-size: 0.85rem;
-  color: #888;
-  margin-bottom: 2rem;
-}
+/* =========================================================
+   LISTA DE SINAIS
+========================================================= */
 
-/* ===== BREADCRUMB ===== */
-
-.breadcrumb {
-  font-size: 0.85rem;
-  margin-bottom: 1.5rem;
-}
-
-.breadcrumb a {
-  color: var(--cor-principal);
-  text-decoration: none;
-}
-
-.breadcrumb a:hover {
-  text-decoration: underline;
-}
-
-/* ===== CTA DO ARTIGO ===== */
-
-.article-cta {
-  margin-top: 3.5rem;
-  padding: 2rem;
-  border-radius: 16px;
-  text-align: center;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.article-cta.psicologia {
-  background: var(--rosa-pastel);
-}
-
-.article-cta.psicopedagogia {
-  background: var(--lilas-pastel);
-}
-
-.article-cta.aba {
-  background: var(--azul-pastel);
-}
-
-.article-cta.neuro {
-  background: var(--verde-pastel);
-}
-
-.article-cta h3 {
-  margin-bottom: 0.5rem;
-}
-
-.article-cta {
-  margin-top: 3rem;
-  padding: 2rem;
-  background: #f6f9f7;
-  border-radius: 12px;
-
-  /* ESSENCIAL */
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-
-  text-align: center;
-}
-
-/* Fundo geral da página do blog */
-body.blog-page {
-  background-color: var(--cinza-claro);
-}
-
-/* Card central */
-.blog-list {
-  background: var(--branco);
-  border-radius: 16px;
-  box-shadow: var(--shadow-soft);
-}
-
-/* Estilos para a lista de sinais */
 .signs-list {
-    list-style: none;
-    padding: 0;
-    margin: 25px 0 30px 0;
-    counter-reset: sign-counter;
+  list-style: none;
+  padding: 0;
+  margin: 25px 0 30px;
+  counter-reset: sign-counter;
 }
 
 .signs-list li {
-    counter-increment: sign-counter;
-    padding: 15px 15px 15px 50px;
-    margin-bottom: 12px;
-    background: #f8f9fa;
-    border-left: 4px solid #008B6F;
-    border-radius: 0 8px 8px 0;
-    position: relative;
-    font-size: 1.05rem;
-    line-height: 1.5; 
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  counter-increment: sign-counter;
+  padding: 15px 15px 15px 50px;
+  margin-bottom: 12px;
+  background: #f8f9fa;
+  border-left: 4px solid #008B6F;
+  border-radius: 0 8px 8px 0;
+  position: relative;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
 .signs-list li::before {
-    content: counter(sign-counter);
-    position: absolute;
-    left: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: #008B6F;
-    color: white;
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.9rem;
-    font-weight: bold;
+  content: counter(sign-counter);
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #008B6F;
+  color: #fff;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-weight: bold;
 }
 
-.signs-list li:hover {
-    transform: translateX(4px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+/* =========================================================
+   CTA DO ARTIGO
+========================================================= */
+
+.article-cta {
+  margin: 3rem auto;
+  padding: 2rem;
+  border-radius: 16px;
+  text-align: center;
+  max-width: 800px;
 }
 
-.signs-list strong {
-    color: #2c3e50;
-	font-weight: 700;
-}
- 
-/* ===== RESPONSIVIDADE ===== */
-@media (max-width: 768px) {
-	
-	.professional-note {
-        padding: 1.5rem;
-        margin: 2rem 0;
-    }
-	
-    .blog-list,
-    .article {
-        padding: 2rem 1rem;
-    }
-    
-    .blog-list h1,
-    .article h1 {
-        font-size: 1.8rem;
-    }
-    
-    .article h2 {
-        font-size: 1.5rem;
-        margin-top: 2rem;
-    }
-    
-    .article-cta {
-        padding: 1.5rem;
-        margin: 2.5rem auto;
-    }
-    
-    .signs-list li {
-        padding: 12px 12px 12px 45px;
-        font-size: 1rem;
-    }
-    
-    .signs-list li::before {
-        width: 22px;
-        height: 22px;
-        font-size: 0.8rem;
-    }
-}
+.article-cta.psicologia { background: var(--rosa-pastel); }
+.article-cta.psicopedagogia { background: var(--lilas-pastel); }
+.article-cta.aba { background: var(--azul-pastel); }
+.article-cta.neuro { background: var(--verde-pastel); }
 
-@media (max-width: 480px) {
-    .blog-card h2 {
-        font-size: 1.3rem;
-    }
-    
-    .article {
-        padding: 1.5rem 1rem;
-        border-radius: 12px;
-    }
-}
+/* =========================================================
+   NOTA PROFISSIONAL
+========================================================= */
 
-/* ===== NOTA PROFISSIONAL ===== */
 .professional-note {
-    margin: 2.5rem 0;
-    padding: 1.8rem;
-    background: #f0f9ff;
-    border-left: 4px solid #008B6F;
-    border-radius: 0 8px 8px 0;
+  margin: 2.5rem 0;
+  padding: 1.8rem;
+  background: #f0f9ff;
+  border-left: 4px solid #008B6F;
+  border-radius: 0 8px 8px 0;
 }
 
 .professional-note h3 {
-    color: #008B6F;
-    margin-top: 0;
-    font-size: 1.2rem;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+  color: #008B6F;
+  font-size: 1.2rem;
+  display: flex;
+  gap: 8px;
 }
 
-.professional-note p {
-    color: #2c3e50;
-    margin-bottom: 0;
-    font-size: 1.05rem;
-    line-height: 1.6;
-} 
+/* =========================================================
+   RESPONSIVIDADE
+========================================================= */
 
-.content-review {
-  background: var(--cinza-claro);
-  border-left: 4px solid var(--verde-pastel);
-  padding: 0.8rem 1rem;
-  margin: 1rem 0 1.5rem;
-  border-radius: 8px;
-  font-size: 0.9rem;
+@media (max-width: 768px) {
+  .blog-list {
+    padding: 2rem 1rem;
+  }
+
+  .blog-list h1 {
+    font-size: 1.8rem;
+  }
+
+  .article {
+    padding: 2rem 1rem;
+  }
+
+  .article h1 {
+    font-size: 1.9rem;
+  }
 }
 
-.content-review strong {
-  display: block;
-  color: var(--texto-escuro);
-  margin-bottom: 0.3rem;
-}
+@media (max-width: 480px) {
+  .blog-card h2 {
+    font-size: 1.25rem;
+  }
 
-.content-review p {
-  margin: 0;
-  color: #555;
+  .blog-image img {
+    height: 180px;
+  }
 }
