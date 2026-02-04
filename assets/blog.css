@@ -227,6 +227,8 @@ body.blog-page {
 .article-cta.psicopedagogia { background: var(--lilas-pastel); }
 .article-cta.aba { background: var(--azul-pastel); }
 .article-cta.neuro { background: var(--verde-pastel); }
+.article-cta.fonoaudiologia { background: var(--azul-pastel); 
+}
 
 /* =========================================================
    NOTA PROFISSIONAL
