@@ -227,8 +227,8 @@ body.blog-page {
 .article-cta.psicopedagogia { background: var(--lilas-pastel); }
 .article-cta.aba { background: var(--azul-pastel); }
 .article-cta.neuro { background: var(--verde-pastel); }
-.article-cta.fonoaudiologia { background: var(--azul-pastel); 
-}
+.article-cta.fonoaudiologia { background: var(--azul-pastel);}
+.article-cta.neuropsicologia { background: var(--verde-pastel);}
 
 /* =========================================================
    NOTA PROFISSIONAL
@@ -317,4 +317,13 @@ body.blog-page {
 
 .related-articles a:hover {
     text-decoration: underline;
+}
+
+.professional-signature {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #555;
+    border-top: 1px solid #ddd;
+    padding-top: 0.8rem;
+    line-height: 1.4;
 }
