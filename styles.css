@@ -193,64 +193,7 @@ body {
     top: 0;
     left: 0;
     pointer-events: none;
-}
-
-.butterfly {
-    position: absolute;
-    font-size: 2rem;
-    animation: float 6s ease-in-out infinite;
-}
-
-.butterfly-1 {
-    top: 20%;
-    left: 10%;
-    animation-delay: 0s;
-}
-
-.butterfly-2 {
-    top: 60%;
-    right: 15%;
-    animation-delay: 2s;
-}
-
-.butterfly-3 {
-    bottom: 20%;
-    left: 20%;
-    animation-delay: 4s;
-}
-
-
-
-.butterfly {
-  font-size: 1.7rem;
-  position: absolute;
-  animation: fly 6s ease-in-out infinite;
-}
-
-.butterfly-1 { filter: hue-rotate(0deg) brightness(1.2); }
-.butterfly-2 { filter: hue-rotate(120deg) saturate(2); }
-.butterfly-3 { filter: hue-rotate(240deg) brightness(0.9); }
-
-@keyframes fly {
-  0% { transform: translateY(0) rotate(0); opacity: 0.9; }
-  50% { transform: translateY(-100px) rotate(10deg); opacity: 1; }
-  100% { transform: translateY(-200px) rotate(-10deg); opacity: 0; }
-}
-
-@keyframes float {
-    0%, 100% {
-        transform: translateY(0) translateX(0);
-    }
-    25% {
-        transform: translateY(-20px) translateX(10px);
-    }
-    50% {
-        transform: translateY(0) translateX(20px);
-    }
-    75% {
-        transform: translateY(20px) translateX(10px);
-    }
-}
+} 
 
 @keyframes fadeInUp {
     from {
@@ -386,6 +329,27 @@ body {
 .service-card p {
     color: var(--cinza-medio);
     line-height: 1.6;
+}
+
+.service-card.featured {
+    border: 2px solid var(--verde-pastel);
+    background: linear-gradient(180deg, #ffffff 0%, #f9fdf9 100%);
+    position: relative;
+}
+
+/* Um selo discreto no topo do card */
+.service-card.featured::before {
+    content: "Especialidade";
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--verde-pastel);
+    color: white;
+    padding: 2px 12px;
+    border-radius: 10px;
+    font-size: 0.7rem;
+    font-weight: bold;
 }
 
 /* Seção Contato */
@@ -619,85 +583,68 @@ body {
     border-radius: 8px;
 }
 
-
-
-/* Carousel Styles */
-.carousel-container {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-    margin-top: 3rem;
+/* Configuração do Grid de Serviços */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 40px;
 }
 
-.carousel-track {
-    display: flex;
-    gap: 20px; /* espaço entre os cards */
-    transition: transform 0.5s ease-in-out;
-}
-
-.carousel-item {
-    flex: 0 0 calc(33.333% - 20px); /* 3 itens + gap de 20px */
-    box-sizing: border-box;
-}
-
+/* Novo Estilo do Card */
 .service-card {
-    background-color: #fff;
+    background: var(--branco);
+    padding: 30px 20px;
     border-radius: 20px;
-    padding: 20px;
     text-align: center;
-    height: 350px; /* altura fixa */
+    box-shadow: var(--shadow-soft);
+    transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    justify-content: space-between;
+    min-height: 320px; /* Altura equilibrada para os cards */
+    border: 1px solid rgba(0,0,0,0.03);
 }
 
-.service-card .service-icon {
-    font-size: 50px;
-    margin-bottom: 15px;
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-medium);
+    border-color: var(--verde-pastel);
 }
 
-.carousel-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(212, 175, 55, 0.8);
-    color: #fff;
-    border: none;
-    padding: 10px 15px;
-    cursor: pointer;
-    font-size: 1.5rem;
-    border-radius: 50%;
-    z-index: 10;
-    transition: background-color 0.3s ease;
+.service-link {
+    margin-top: 15px;
+    color: var(--verde-pastel);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
 }
 
-.carousel-button:hover {
-    background-color: #d4af37;
+/* Botões de WhatsApp nos cards sem link de blog */
+.service-link.whats {
+    background: #f0f7f0;
+    padding: 8px 15px;
+    border-radius: 50px;
+    display: inline-block;
 }
 
-.carousel-button.prev {
-    left: 10px;
+.service-link.whats:hover {
+    background: var(--verde-pastel);
+    color: white;
 }
 
-.carousel-button.next {
-    right: 10px;
+/* Efeito de revelação (Scroll) */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
 }
 
-/* Responsividade */
-@media (max-width: 1024px) {
-    .carousel-item {
-        flex: 0 0 calc(50% - 20px); /* 2 itens */
-    }
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
 }
-
-@media (max-width: 768px) {
-    .carousel-item {
-        flex: 0 0 100%; /* 1 item */
-    }
-} 
-
+ 
 /* Botão Agendar Consulta no topo */
 .btn-agendar {
     background-color: var(--dourado);
