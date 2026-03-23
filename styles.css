@@ -431,49 +431,7 @@ body {
 .contact-form .btn-primary {
     width: 100%;
 }
-
-/* Footer */
-.footer {
-    background: linear-gradient(135deg, var(--rosa-pastel) 0%, var(--lilas-pastel) 100%);
-    padding: 3rem 0 1rem;
-}
-
-.footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-bottom: 2rem;
-}
-
-.footer-section h3 {
-    color: var(--dourado);
-    margin-bottom: 1rem;
-    font-size: 1.2rem;
-}
-
-.footer-section p {
-    margin-bottom: 0.8rem;
-    line-height: 1.6;
-}
-
-.footer-link {
-    color: var(--dourado);
-    text-decoration: none;
-    font-weight: 600;
-    transition: var(--transicao);
-}
-
-.footer-link:hover {
-    text-decoration: underline;
-}
-
-.footer-bottom {
-    text-align: center;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
-    color: var(--cinza-medio);
-}
-
+ 
 .member-crp {
     font-size: 0.95rem;
     font-weight: 600;
@@ -999,4 +957,108 @@ img[loading="lazy"].loaded {
     transform: translateX(-50%) translateY(0);
 } 
  
- 
+/* FOOTER FINAl */
+.footer {
+  background: linear-gradient(135deg, var(--rosa-pastel), var(--lilas-pastel));
+  padding: 40px 0 20px;
+  font-size: 14px;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+}
+
+.footer-section h3 {
+  color: var(--dourado);
+  margin-bottom: 10px;
+}
+
+.footer-section p {
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+.footer-text {
+  margin-top: 10px;
+}
+
+.footer-legal {
+  margin-top: 15px;
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+.footer-link {
+  color: var(--dourado);
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--transicao);
+}
+
+.footer-link:hover {
+  text-decoration: underline;
+}
+
+.social-icons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-links-extra {
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.footer-links-extra a:not(:last-child)::after {
+  content: "|";
+  margin-left: 10px;
+  opacity: 0.5;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+.footer-bottom .dev {
+  font-size: 12px;
+}
+
+.footer-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.footer-item svg {
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.page-content {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
+  line-height: 1.6;
+}
+
+.page-content h1 {
+  margin-bottom: 20px;
+}
+
+.page-content h2 {
+  margin-top: 25px;
+}
