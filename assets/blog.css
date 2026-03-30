@@ -229,6 +229,11 @@ body.blog-page {
 .article-cta.neuro { background: var(--verde-pastel); }
 .article-cta.fonoaudiologia { background: var(--azul-pastel);}
 .article-cta.neuropsicologia { background: var(--verde-pastel);}
+.article-cta.musicalizacao { background: var(--rosa-pastel); }
+.article-cta.parental { background: var(--lilas-pastel); }
+.article-cta.psicomotricidade { background: var(--lilas-pastel); }
+.article-cta.reforco-escolar { background: var(--azul-pastel); }
+
 
 /* =========================================================
    NOTA PROFISSIONAL
