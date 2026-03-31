@@ -1,32 +1,40 @@
 // Menu Hamburguer (Mobile)
-const hamburger = document.getElementById('hamburger');
-const navMenu = document.getElementById('navMenu');
 
-// [FIX: Bug] Movido para dentro do DOMContentLoaded para garantir que o elemento existe
-// [FIX: Manutenção] Função extraída para evitar duplicação em 3 lugares
-function resetHamburger() {
-    const spans = hamburger.querySelectorAll('span');
-    spans[0].style.transform = 'none';
-    spans[1].style.opacity = '1';
-    spans[2].style.transform = 'none';
-}
+document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.navMenu');
 
-function closeMenu() {
-    navMenu.classList.remove('active');
-    resetHamburger();
-}
+    // Falha explícita (melhor que quebrar silenciosamente)
+    if (!hamburger || !navMenu) {
+        console.error('hamburger ou navMenu não encontrado no DOM');
+        return;
+    }
 
-hamburger.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
+    function resetHamburger() {
+        const spans = hamburger.querySelectorAll('span');
+        spans[0].style.transform = 'none';
+        spans[1].style.opacity = '1';
+        spans[2].style.transform = 'none';
+    }
 
-    const spans = hamburger.querySelectorAll('span');
-    if (navMenu.classList.contains('active')) {
-        spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-        spans[1].style.opacity = '0';
-        spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
-    } else {
+    function closeMenu() {
+        navMenu.classList.remove('active');
         resetHamburger();
     }
+
+    hamburger.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+
+        const spans = hamburger.querySelectorAll('span');
+
+        if (navMenu.classList.contains('active')) {
+            spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+            spans[1].style.opacity = '0';
+            spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+        } else {
+            resetHamburger();
+        }
+    });
 });
 
 // Fechar menu ao clicar fora
