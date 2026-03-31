@@ -1,30 +1,33 @@
 // Menu Hamburguer (Mobile)
 
-document.addEventListener('DOMContentLoaded', () => {
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('.navMenu');
+// 1. Variáveis globais (acessíveis por todo o script)
+let hamburger, navMenu;
 
-    // Falha explícita (melhor que quebrar silenciosamente)
+document.addEventListener('DOMContentLoaded', () => {
+    hamburger = document.querySelector('.hamburger');
+    navMenu = document.querySelector('.navMenu');
+
     if (!hamburger || !navMenu) {
         console.error('hamburger ou navMenu não encontrado no DOM');
         return;
     }
 
+    // Função para resetar o ícone do hamburger
     function resetHamburger() {
         const spans = hamburger.querySelectorAll('span');
-        spans[0].style.transform = 'none';
+        spans.forEach(span => span.style.transform = 'none');
         spans[1].style.opacity = '1';
-        spans[2].style.transform = 'none';
     }
 
-    function closeMenu() {
+    // Função para fechar o menu (Agora acessível)
+    window.closeMenu = function() {
         navMenu.classList.remove('active');
         resetHamburger();
     }
 
+    // Evento do click no hamburger
     hamburger.addEventListener('click', () => {
         navMenu.classList.toggle('active');
-
         const spans = hamburger.querySelectorAll('span');
 
         if (navMenu.classList.contains('active')) {
@@ -35,15 +38,29 @@ document.addEventListener('DOMContentLoaded', () => {
             resetHamburger();
         }
     });
+
+    // Fechar menu ao clicar nos links (Corrigindo o erro do ReferenceError)
+    const navLinks = document.querySelectorAll('.navMenu a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            window.closeMenu();
+        });
+    });
+
+    // CHAME AQUI AS ANIMAÇÕES DOS CARDS
+    // Isso garante que elas rodem logo após o menu estar pronto
+    iniciarAnimacoes(); 
 });
 
-// Fechar menu ao clicar fora
+// Fechar menu ao clicar fora (Agora navMenu e hamburger são globais)
 document.addEventListener('click', (event) => {
-    const isClickInsideMenu = navMenu.contains(event.target);
-    const isClickOnHamburger = hamburger.contains(event.target);
+    if (navMenu && hamburger) {
+        const isClickInsideMenu = navMenu.contains(event.target);
+        const isClickOnHamburger = hamburger.contains(event.target);
 
-    if (!isClickInsideMenu && !isClickOnHamburger && navMenu.classList.contains('active')) {
-        closeMenu();
+        if (!isClickInsideMenu && !isClickOnHamburger && navMenu.classList.contains('active')) {
+            window.closeMenu();
+        }
     }
 });
 
