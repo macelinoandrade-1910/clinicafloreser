@@ -1,86 +1,12 @@
-// Menu Hamburguer (Mobile)
+/**
+ * CLÍNICA FLORESER - Script Principal Otimizado
+ * Desenvolvido por Macelino Andrade
+ */
 
-// 1. Variáveis globais (acessíveis por todo o script)
+// 1. VARIÁVEIS GLOBAIS (Acessíveis por todo o script)
 let hamburger, navMenu;
 
-document.addEventListener('DOMContentLoaded', () => {
-    hamburger = document.querySelector('.hamburger');
-    navMenu = document.querySelector('.navMenu');
-
-    if (!hamburger || !navMenu) {
-        console.error('hamburger ou navMenu não encontrado no DOM');
-        return;
-    }
-
-    // Função para resetar o ícone do hamburger
-    function resetHamburger() {
-        const spans = hamburger.querySelectorAll('span');
-        spans.forEach(span => span.style.transform = 'none');
-        spans[1].style.opacity = '1';
-    }
-
-    // Função para fechar o menu (Agora acessível)
-    window.closeMenu = function() {
-        navMenu.classList.remove('active');
-        resetHamburger();
-    }
-
-    // Evento do click no hamburger
-    hamburger.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-        const spans = hamburger.querySelectorAll('span');
-
-        if (navMenu.classList.contains('active')) {
-            spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-            spans[1].style.opacity = '0';
-            spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
-        } else {
-            resetHamburger();
-        }
-    });
-
-    // Fechar menu ao clicar nos links (Corrigindo o erro do ReferenceError)
-    const navLinks = document.querySelectorAll('.navMenu a');
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            window.closeMenu();
-        });
-    });
-
-    // CHAME AQUI AS ANIMAÇÕES DOS CARDS
-    // Isso garante que elas rodem logo após o menu estar pronto
-    iniciarAnimacoes(); 
-});
-
-// Fechar menu ao clicar fora (Agora navMenu e hamburger são globais)
-document.addEventListener('click', (event) => {
-    if (navMenu && hamburger) {
-        const isClickInsideMenu = navMenu.contains(event.target);
-        const isClickOnHamburger = hamburger.contains(event.target);
-
-        if (!isClickInsideMenu && !isClickOnHamburger && navMenu.classList.contains('active')) {
-            window.closeMenu();
-        }
-    }
-});
-
-// Fechar menu com tecla ESC
-document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && navMenu.classList.contains('active')) {
-        closeMenu();
-    }
-});
-
-// Fechar menu ao clicar em um link
-const navLinks = document.querySelectorAll('.nav-link');
-navLinks.forEach(link => {
-    link.addEventListener('click', closeMenu);
-});
-
-// [FIX: Performance] Smooth scroll JS removido — substituído por scroll-behavior: smooth no CSS.
-// Adicione ao seu CSS: html { scroll-behavior: smooth; scroll-padding-top: 80px; }
-
-// Animação de Scroll - Revelar elementos ao rolar a página
+// 2. CONFIGURAÇÃO DO OBSERVADOR DE INTERSEÇÃO (Animações de Scroll)
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
@@ -89,208 +15,154 @@ const observerOptions = {
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
+            // Torna o elemento visível e remove a observação
             entry.target.style.opacity = '1';
             entry.target.style.transform = 'translateY(0)';
+            observer.unobserve(entry.target);
         }
     });
 }, observerOptions);
 
-// Carregar mapa apenas quando visível
-const mapObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const iframe = entry.target;
-            if (iframe.dataset.src) {
-                iframe.src = iframe.dataset.src;
-            }
-            mapObserver.unobserve(iframe);
-        }
-    });
-});
-
-// [FIX: Bug] DOMContentLoaded unificado em um único listener (era dois separados)
+// 3. INICIALIZAÇÃO DO DOM
 document.addEventListener('DOMContentLoaded', () => {
-    // [FIX: Bug] #year agora dentro do DOMContentLoaded, evitando null silencioso
+    // Seleção de elementos principais
+    hamburger = document.querySelector('.hamburger');
+    navMenu = document.querySelector('.navMenu');
     const yearEl = document.getElementById('year');
+
+    // Atualizar ano do copyright automaticamente
     if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-    // Animação dos cards
+    // Lógica do Menu Hamburguer
+    if (hamburger && navMenu) {
+        const resetHamburger = () => {
+            const spans = hamburger.querySelectorAll('span');
+            spans.forEach(span => span.style.transform = 'none');
+            spans[1].style.opacity = '1';
+        };
+
+        // Função Global para fechar o menu
+        window.closeMenu = function() {
+            navMenu.classList.remove('active');
+            resetHamburger();
+        };
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            const spans = hamburger.querySelectorAll('span');
+
+            if (navMenu.classList.contains('active')) {
+                spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+                spans[1].style.opacity = '0';
+                spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+            } else {
+                resetHamburger();
+            }
+        });
+
+        // Fechar menu ao clicar em qualquer link interno
+        document.querySelectorAll('.navMenu a').forEach(link => {
+            link.addEventListener('click', () => window.closeMenu());
+        });
+    }
+
+    // 4. ANIMAÇÃO DOS CARDS E ELEMENTOS REVEAL
+    // Seleciona todos os elementos que devem "surgir" na tela
     const animatedElements = document.querySelectorAll(
         '.service-card, .pillar, .team-member, .contact-info, .contact-form-container'
     );
-    const images = document.querySelectorAll('img');
 
-    const iniciarAnimacoes = () => {
-        animatedElements.forEach((el, index) => {
-            el.style.setProperty('--delay', index);
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(el);
-        });
-    };
-
-    const prepararImagens = () => {
-        images.forEach(img => {
-            if (!img.complete) {
-                img.style.opacity = '0';
-                img.style.transition = 'opacity 0.5s ease';
-                img.addEventListener('load', function() {
-                    this.style.opacity = '1';
-                });
-            } else {
-                requestAnimationFrame(() => {
-                    img.style.opacity = '1';
-                    img.style.transition = 'opacity 0.3s ease';
-                });
-            }
-        });
-    };
-
-    // Lazy loading com classe .loaded para imagens[loading="lazy"]
-    document.querySelectorAll('img[loading="lazy"]').forEach(img => {
-        if (img.complete) {
-            img.classList.add('loaded');
-        } else {
-            img.addEventListener('load', function() {
-                this.classList.add('loaded');
-            });
-        }
+    animatedElements.forEach((el, index) => {
+        // Estado inicial (Invisível)
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+        // Efeito cascata baseado no índice
+        el.style.transitionDelay = `${index * 0.1}s`;
+        
+        // Começa a observar o elemento
+        observer.observe(el);
     });
 
-    iniciarAnimacoes();
-
-    if (document.readyState === 'complete') {
-        prepararImagens();
-    } else {
-        window.addEventListener('load', prepararImagens);
-    }
-
-    // WhatsApp Widget Inteligente
+    // 5. WHATSAPP WIDGET INTELIGENTE
     const whatsappWidget = document.querySelector('.wc_whatsapp_app');
-    if (whatsappWidget) {
-        if (!localStorage.getItem('wc_whatsapp_shown')) {
-            setTimeout(function() {
-                whatsappWidget.classList.add('show-primary');
-
-                setTimeout(function() {
-                    whatsappWidget.classList.remove('show-primary');
-                }, 8000);
-
-                localStorage.setItem('wc_whatsapp_shown', 'true');
-            }, 4000);
-        }
-
-        const whatsappPrimary = document.querySelector('.wc_whatsapp_primary');
-        if (whatsappPrimary) {
-            whatsappPrimary.addEventListener('click', function(e) {
-                e.preventDefault();
-                this.style.display = 'none';
-            });
-        }
-
-        const whatsappBtn = document.querySelector('.wc_whatsapp');
-        if (whatsappBtn) {
-            whatsappBtn.addEventListener('mouseenter', function() {
+    if (whatsappWidget && !localStorage.getItem('wc_whatsapp_shown')) {
+        setTimeout(() => {
+            whatsappWidget.classList.add('show-primary');
+            setTimeout(() => {
                 whatsappWidget.classList.remove('show-primary');
-            });
+            }, 8000);
+            localStorage.setItem('wc_whatsapp_shown', 'true');
+        }, 4000);
+    }
+});
+
+// 6. EVENTOS DE INTERAÇÃO GLOBAL (Fora do DOMContentLoaded)
+
+// Fechar menu ao clicar fora dele
+document.addEventListener('click', (event) => {
+    if (navMenu && hamburger && navMenu.classList.contains('active')) {
+        const isClickInside = navMenu.contains(event.target) || hamburger.contains(event.target);
+        if (!isClickInside) {
+            window.closeMenu();
         }
     }
+});
 
-    // [FIX: Performance] mapObserver — funciona apenas se o iframe usar data-src no HTML
-    const mapIframe = document.querySelector('iframe[data-src]');
-    if (mapIframe) {
-        mapObserver.observe(mapIframe);
+// Fechar menu com a tecla ESC
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && navMenu && navMenu.classList.contains('active')) {
+        window.closeMenu();
     }
 });
 
-// Efeito de mudança de sombra do header ao rolar
-window.addEventListener('scroll', () => {
-    const header = document.querySelector('.header');
-    if (header) {
-        header.style.boxShadow = window.scrollY > 100
-            ? '0 4px 20px rgba(0, 0, 0, 0.15)'
-            : '0 2px 10px rgba(0, 0, 0, 0.1)';
-    }
-});
-
-// Máscara de telefone
+// 7. MÁSCARA DE TELEFONE (Formato Brasil)
 const phoneInput = document.getElementById('phone');
 if (phoneInput) {
     phoneInput.addEventListener('input', (e) => {
-        let value = e.target.value.replace(/\D/g, '');
-
-        if (value.length <= 10) {
-            value = value.replace(/^(\d{2})(\d{4})(\d{0,4}).*/, '($1) $2-$3');
+        let v = e.target.value.replace(/\D/g, '');
+        if (v.length > 11) v = v.substring(0, 11);
+        
+        if (v.length > 10) {
+            v = v.replace(/^(\d{2})(\d{5})(\d{4})/, "($1) $2-$3");
+        } else if (v.length > 5) {
+            v = v.replace(/^(\d{2})(\d{4})(\d{0,4})/, "($1) $2-$3");
+        } else if (v.length > 2) {
+            v = v.replace(/^(\d{2})(\d{0,5})/, "($1) $2");
         } else {
-            value = value.replace(/^(\d{2})(\d{5})(\d{0,4}).*/, '($1) $2-$3');
+            v = v.replace(/^(\d*)/, "($1");
         }
-
-        e.target.value = value;
+        e.target.value = v;
     });
 }
 
-// ==========================================================================
-// RASTREAMENTO DE CONVERSÕES
-// ==========================================================================
-
-// 1. WhatsApp e Agendamento
-document.querySelectorAll('.btn-agendar, .wc_whatsapp, .btn-automation').forEach(btn => {
-    btn.addEventListener('click', function() {
-        gtag('event', 'whatsapp_click', {
-            'event_category': 'conversion',
-            'event_label': this.textContent?.trim() || 'WhatsApp Button',
-            'value': 1
-        });
-    });
-});
-
-// 2. Formulário de Contato
+// 8. FORMULÁRIO DE CONTACTO E RASTREAMENTO
 const contactForm = document.getElementById('contactForm');
-
 if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
 
-        // [FIX: Segurança] encodeURIComponent aplicado nos valores antes de montar a URL
         const name = encodeURIComponent(document.getElementById('name').value);
         const phone = encodeURIComponent(document.getElementById('phone').value);
 
-        const whatsappNumber = '5541987868813';
-        const whatsappMessage = `Ol%C3%A1! Gostaria de informa%C3%A7%C3%B5es sobre a Floreser.%0A%0A*Nome:* ${name}%0A*WhatsApp:* ${phone}`;
-        const whatsappURL = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
-
-        setTimeout(() => {
-            window.open(whatsappURL, '_blank');
-        }, 0);
-
-        setTimeout(() => {
+        // Disparar evento do Google Analytics (se configurado)
+        if (typeof gtag === 'function') {
             gtag('event', 'form_submit', {
                 'event_category': 'lead',
-                'event_label': 'Contact Form',
-                'value': 1
+                'event_label': 'Contact Form'
             });
-        }, 0);
+        }
 
-        const toast = document.getElementById('toast');
-        if (toast) toast.classList.add('show');
-
+        // Redirecionar para WhatsApp
+        const whatsappURL = `https://wa.me/5541987868813?text=Olá! Gostaria de informações sobre a Floreser.%0A%0A*Nome:* ${name}%0A*WhatsApp:* ${phone}`;
+        
+        window.open(whatsappURL, '_blank');
         contactForm.reset();
-
-        // [FIX: Manutenção] Logs de performance removidos
-        setTimeout(() => {
-            if (toast) toast.classList.remove('show');
-        }, 3000);
+        
+        const toast = document.getElementById('toast');
+        if (toast) {
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 3000);
+        }
     });
 }
-
-// 3. Links WhatsApp genéricos (backup)
-document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp"]').forEach(link => {
-    link.addEventListener('click', function() {
-        gtag('event', 'whatsapp_click', {
-            'event_category': 'conversion',
-            'event_label': 'Generic WhatsApp Link',
-            'value': 1
-        });
-    });
-});
