@@ -43,10 +43,23 @@ body {
     display: inline-block; 
     width: 100%;
 }
+/* Estilos para a imagem da logo */
 .logo-img {
-    max-width: 100%;
-    height: auto;
-    display: block; 
+    height: 60px;
+    width: auto;
+    vertical-align: middle; 
+    padding: 5px;
+    border-radius: 8px;
+}
+
+.footer-logo-img {
+    height: 80px; /* Ajuste conforme necessário */
+    width: auto;
+    vertical-align: middle;
+    margin-bottom: 0.5rem;
+    background-color: white;
+    padding: 8px;
+    border-radius: 8px;
 }
 .container {
     max-width: 1200px;
@@ -271,7 +284,7 @@ body {
 }
 
 .pillar h3 {
-    color: var(--dourado);
+    color: var(--branco);
     margin-bottom: 0.5rem;
     font-size: 1.5rem;
 }
@@ -288,7 +301,7 @@ body {
     gap: 2rem;
     margin-top: 3rem;
 }
-
+/*
 .service-card {
     background: var(--branco);
     padding: 2rem;
@@ -301,7 +314,7 @@ body {
 .service-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-}
+}*/
 
 .nav-link, .btn, .service-card {
     min-height: 44px;
@@ -520,35 +533,6 @@ body {
     }
 }
 
-
-
-/* Estilos para a imagem da logo */
-.logo-img {
-    height: 60px;
-    width: auto;
-    vertical-align: middle; 
-    padding: 5px;
-    border-radius: 8px;
-}
-
-.footer-logo-img {
-    height: 80px; /* Ajuste conforme necessário */
-    width: auto;
-    vertical-align: middle;
-    margin-bottom: 0.5rem;
-    background-color: white;
-    padding: 8px;
-    border-radius: 8px;
-}
-
-/* Configuração do Grid de Serviços */
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-    margin-top: 40px;
-}
-
 /* Novo Estilo do Card */
 .service-card {
     background: var(--branco);
@@ -605,7 +589,7 @@ body {
  
 /* Botão Agendar Consulta no topo */
 .btn-agendar {
-    background-color: var(--dourado);
+    background-color: linear-gradient(135deg, #4CAF50, #45a049);
     color: var(--branco);
     padding: 8px 16px;
     border-radius: 25px;
@@ -614,12 +598,15 @@ body {
     transition: var(--transicao);
     display: inline-block;
 	margin-top: -5px;
+	box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
 }
 
 .btn-agendar:hover {
-    background-color: #B8941F;
-    transform: translateY(-2px);
+    background: linear-gradient(135deg, #45a049, #4CAF50);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
 }
+
 
 /* Link do Instagram no topo */
 .instagram-link {
@@ -833,19 +820,6 @@ img[loading="lazy"].loaded {
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px); /* Safari */
     background: rgba(252, 177, 173, 0.95);
-}
-
-/* 2. BOTÃO WHATSAPP MAIS CONVERSIVO */
-.btn-agendar {
-    background: linear-gradient(135deg, #4CAF50, #45a049) !important;
-    color: white !important;
-    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3) !important;
-}
-
-.btn-agendar:hover {
-    background: linear-gradient(135deg, #45a049, #4CAF50) !important;
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4) !important;
 }
 
 /* 3. LINKS DE NAVEGAÇÃO MAIS ELEGANTES */
