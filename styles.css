@@ -607,6 +607,19 @@ body {
     box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
 }
 
+/* 2. BOTÃO WHATSAPP MAIS CONVERSIVO */
+.btn-agendar {
+background: linear-gradient(135deg, #4CAF50, #45a049) !important;
+color: white !important;
+box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3) !important;
+}
+
+.btn-agendar:hover {
+background: linear-gradient(135deg, #45a049, #4CAF50) !important;
+transform: translateY(-3px);
+box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4) !important;
+} 
+ 
 
 /* Link do Instagram no topo */
 .instagram-link {
