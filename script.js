@@ -1,7 +1,7 @@
 /**
  * CLÍNICA FLORESER - Script Principal
  * Desenvolvido por Macelino Andrade
- * Versão Corrigida: Menu Hamburguer + Animações
+ * Versão Final: Menu Blindado + Animações Rápidas
  */
 
 // 1. VARIÁVEIS GLOBAIS
@@ -10,7 +10,7 @@ let hamburger, navMenu;
 // 2. CONFIGURAÇÃO DO OBSERVADOR DE INTERSEÇÃO (Animações de Scroll)
 const observerOptions = {
     threshold: 0.01, // Aparece assim que o primeiro pixel toca a tela
-    rootMargin: '0px 0px 100px 0px' // "Engana" o navegador fazendo-o achar que a tela é 100px maior embaixo
+    rootMargin: '0px 0px 100px 0px' // Carrega antes de entrar totalmente na visão
 };
 
 const observer = new IntersectionObserver((entries) => {
@@ -34,7 +34,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- LÓGICA DO MENU HAMBURGUER ---
     if (hamburger && navMenu) {
         
-        // Função para resetar o ícone (Voltar para 3 linhas)
         const resetHamburgerIcon = () => {
             const spans = hamburger.querySelectorAll('span');
             if (spans.length === 3) {
@@ -44,18 +43,17 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         };
 
-        // Função Global para fechar o menu
         window.closeMenu = function() {
             navMenu.classList.remove('active');
             resetHamburgerIcon();
         };
 
-        hamburger.addEventListener('click', () => {
+        hamburger.addEventListener('click', (e) => {
+            e.stopPropagation(); // [CORREÇÃO] Impede que o clique feche o menu imediatamente
             navMenu.classList.toggle('active');
             const spans = hamburger.querySelectorAll('span');
 
             if (navMenu.classList.contains('active')) {
-                // ANIMAÇÃO PARA FORMAR O "X"
                 if (spans.length === 3) {
                     spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
                     spans[1].style.opacity = '0';
@@ -66,33 +64,30 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Fechar menu ao clicar em qualquer link interno
         document.querySelectorAll('.navMenu a').forEach(link => {
             link.addEventListener('click', () => window.closeMenu());
         });
     }
 
-    // --- 4. ANIMAÇÃO DOS CARDS E ELEMENTOS REVEAL ---
+    // --- 4. ANIMAÇÃO DOS CARDS (VELOCIDADE OTIMIZADA) ---
     const animatedElements = document.querySelectorAll(
-        '.service-card, .pillar, .team-member, .contact-info, .contact-form-container'
+        '.service-card, .pillar, .team-member, .contact-info, .contact-form-container, .reveal'
     );
 
     animatedElements.forEach((el, index) => {
         el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)'; // Diminuí de 30 para 20 para ser mais rápido
-    el.style.transition = 'opacity 0.4s ease-out, transform 0.4s ease-out'; // Diminuí de 0.6s para 0.4s
-    el.style.transitionDelay = `${index * 0.05}s`; // Metade do tempo de espera entre um card e outro
-    observer.observe(el);
+        el.style.transform = 'translateY(20px)'; // Movimento menor = sensação de mais rapidez
+        el.style.transition = 'opacity 0.4s ease-out, transform 0.4s ease-out';
+        el.style.transitionDelay = `${(index % 3) * 0.05}s`; // Cascata mais veloz
+        observer.observe(el);
     });
 
-    // --- 5. WHATSAPP WIDGET INTELIGENTE ---
+    // --- 5. WHATSAPP WIDGET ---
     const whatsappWidget = document.querySelector('.wc_whatsapp_app');
     if (whatsappWidget && !localStorage.getItem('wc_whatsapp_shown')) {
         setTimeout(() => {
             whatsappWidget.classList.add('show-primary');
-            setTimeout(() => {
-                whatsappWidget.classList.remove('show-primary');
-            }, 8000);
+            setTimeout(() => whatsappWidget.classList.remove('show-primary'), 8000);
             localStorage.setItem('wc_whatsapp_shown', 'true');
         }, 4000);
     }
@@ -114,22 +109,16 @@ document.addEventListener('keydown', (event) => {
     }
 });
 
-// 7. MÁSCARA DE TELEFONE (Formato Brasil)
+// 7. MÁSCARA DE TELEFONE
 const phoneInput = document.getElementById('phone');
 if (phoneInput) {
     phoneInput.addEventListener('input', (e) => {
         let v = e.target.value.replace(/\D/g, '');
         if (v.length > 11) v = v.substring(0, 11);
-        
-        if (v.length > 10) {
-            v = v.replace(/^(\d{2})(\d{5})(\d{4})/, "($1) $2-$3");
-        } else if (v.length > 5) {
-            v = v.replace(/^(\d{2})(\d{4})(\d{0,4})/, "($1) $2-$3");
-        } else if (v.length > 2) {
-            v = v.replace(/^(\d{2})(\d{0,5})/, "($1) $2");
-        } else {
-            v = v.replace(/^(\d*)/, "($1");
-        }
+        if (v.length > 10) v = v.replace(/^(\d{2})(\d{5})(\d{4})/, "($1) $2-$3");
+        else if (v.length > 5) v = v.replace(/^(\d{2})(\d{4})(\d{0,4})/, "($1) $2-$3");
+        else if (v.length > 2) v = v.replace(/^(\d{2})(\d{0,5})/, "($1) $2");
+        else v = v.replace(/^(\d*)/, "($1");
         e.target.value = v;
     });
 }
@@ -139,22 +128,11 @@ const contactForm = document.getElementById('contactForm');
 if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
-
         const name = encodeURIComponent(document.getElementById('name').value);
         const phone = encodeURIComponent(document.getElementById('phone').value);
-
-        if (typeof gtag === 'function') {
-            gtag('event', 'form_submit', {
-                'event_category': 'lead',
-                'event_label': 'Contact Form'
-            });
-        }
-
         const whatsappURL = `https://wa.me/5541987868813?text=Olá! Gostaria de informações sobre a Floreser.%0A%0A*Nome:* ${name}%0A*WhatsApp:* ${phone}`;
-        
         window.open(whatsappURL, '_blank');
         contactForm.reset();
-        
         const toast = document.getElementById('toast');
         if (toast) {
             toast.classList.add('show');
