@@ -25,8 +25,8 @@ const observer = new IntersectionObserver((entries) => {
 
 // 3. INICIALIZAÇÃO DO DOM
 document.addEventListener('DOMContentLoaded', () => {
-    hamburger = document.querySelector('.hamburger');
-    navMenu = document.querySelector('.navMenu');
+    hamburger = document.getElementById('hamburger');
+    navMenu = document.getElementById('navMenu');
     const yearEl = document.getElementById('year');
 
     if (yearEl) yearEl.textContent = new Date().getFullYear();
@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        document.querySelectorAll('.navMenu a').forEach(link => {
+        document.querySelectorAll('#navMenu a').forEach(link => {
             link.addEventListener('click', () => window.closeMenu());
         });
     }
