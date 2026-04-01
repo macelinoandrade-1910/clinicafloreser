@@ -534,47 +534,85 @@ body {
 }
 
 /* Novo Estilo do Card */
+/* 1. O CARD: Base para tudo funcionar */
 .service-card {
     background: var(--branco);
-    padding: 30px 20px;
+    padding: 40px 30px; /* Mais respiro interno */
     border-radius: 20px;
     text-align: center;
     box-shadow: var(--shadow-soft);
-    transition: all 0.3s ease;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-height: 320px; /* Altura equilibrada para os cards */
+    align-items: center;
+    min-height: 380px;
     border: 1px solid rgba(0,0,0,0.03);
+    position: relative;
+    z-index: 1;
 }
 
+/* Efeito de elevação do card todo */
 .service-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-medium);
+    transform: translateY(-12px);
+    box-shadow: var(--shadow-strong);
     border-color: var(--verde-pastel);
 }
 
+/* 2. O LINK/BOTÃO: Comportamento "Pill Button" */
 .service-link {
-    margin-top: 15px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    padding: 12px 28px;
+    background: transparent;
     color: var(--verde-pastel);
     text-decoration: none;
     font-weight: 700;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 2px solid var(--verde-pastel);
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
 }
 
-/* Botões de WhatsApp nos cards sem link de blog */
+/* 3. O HOVER DO BOTÃO: O comportamento que traz vida */
+.service-link:hover {
+    background: var(--verde-pastel);
+    color: white !important;
+    box-shadow: 0 5px 15px rgba(136, 166, 136, 0.4);
+    transform: scale(1.05);
+}
+
+/* Estilo específico para o botão de WhatsApp (Whats) */
 .service-link.whats {
-    background: #f0f7f0;
-    padding: 8px 15px;
-    border-radius: 50px;
-    display: inline-block;
+    border-color: var(--whatsapp-green);
+    color: var(--whatsapp-dark);
+    background: rgba(37, 211, 102, 0.05); /* Fundo bem suave */
 }
 
 .service-link.whats:hover {
-    background: var(--verde-pastel);
-    color: white;
+    background: var(--whatsapp-green);
+    border-color: var(--whatsapp-green);
+    color: white !important;
+    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
 }
 
+/* 4. AJUSTE DE ÍCONE (A seta →) */
+.service-link::after {
+    content: '';
+    margin-left: 8px;
+    transition: transform 0.3s ease;
+}
+
+.service-link:hover::after {
+    transform: translateX(5px); /* A seta dá um "pulo" para a direita */
+}
 /* Efeito de revelação (Scroll) */
 .reveal {
     opacity: 0;
@@ -726,7 +764,7 @@ img[loading="lazy"].loaded {
 
 /* Stagger para os cards - aparece em sequência */
 .service-card, .team-member, .pillar {
-    transition-delay: calc(var(--delay) * 0.1s);
+    will-change: opacity, transform;
 }
 
 /* WhatsApp Widget Inteligente */
