@@ -5,6 +5,42 @@
     box-sizing: border-box;
 }
 
+/* 1. Fonte de Título (Manuscrita) */
+@font-face {
+    font-family: 'Dreaming Outloud Script';
+    src: url('assets/fonts/dreaming-outloud-script.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* 2. Comfortaa - Peso Leve (Opcional) */
+@font-face {
+    font-family: 'Comfortaa';
+    src: url('assets/fonts/Comfortaa-Light.woff2') format('woff2');
+    font-weight: 300; 
+    font-style: normal;
+    font-display: swap;
+}
+
+/* 3. Comfortaa - Peso Padrão (O corpo do texto) */
+@font-face {
+    font-family: 'Comfortaa';
+    src: url('assets/fonts/Comfortaa-Regular.woff2') format('woff2');
+    font-weight: 400; 
+    font-style: normal;
+    font-display: swap;
+}
+
+/* 4. Comfortaa - Peso Negrito (Títulos e Destaques) */
+@font-face {
+    font-family: 'Comfortaa';
+    src: url('assets/fonts/Comfortaa-Bold.woff2') format('woff2');
+    font-weight: 700; 
+    font-style: normal;
+    font-display: swap;
+}
+
 :root {
     /* Paleta de Cores Pastel */
     --rosa-pastel: #fcb1ad;
@@ -14,7 +50,7 @@
     --dourado: linear-gradient(90deg, #b47e00, #f6d365, #ffd700);
     --branco: #ffffff;
     --cinza-claro: #f8f9fa;
-    --cinza-medio: #6c757d;
+    --cinza-medio: #555e66;
     --texto-escuro: #2c3e50;
     
 	--whatsapp-green: #25D366;
