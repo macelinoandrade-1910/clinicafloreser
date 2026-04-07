@@ -5,7 +5,14 @@
     box-sizing: border-box;
 }
 
- 
+/* 1. Fonte de Título (Manuscrita) */
+@font-face {
+    font-family: 'Dreaming Outloud Script';
+    src: url('assets/fonts/dreaming-outloud-script.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
 
 /* 2. Comfortaa - Peso Leve (Opcional) */
 @font-face {
