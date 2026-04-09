@@ -195,11 +195,11 @@ body {
 
 .hero-title {
     font-family: var(--fonte-titulo);
-    font-size: clamp(1.9rem, 3.5vw, 2.8rem); /* um pouco menor */
+    font-size: clamp(2.2rem, 4vw, 3.2rem);
     line-height: 1.15;
     color: var(--dourado);
     margin-bottom: 1rem;
-    text-shadow: none; /* remove o peso extra */
+	text-shadow: none; /* remove o peso extra */
     opacity: 0.9; /* leveza sutil */
 }
 
