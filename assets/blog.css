@@ -1,7 +1,19 @@
 /* =========================================================
    BLOG – LISTAGEM
 ========================================================= */
-
+header {
+ background-color: #fff;
+ box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+ }
+ .hero-title {
+ font-size: 2rem;
+ color: #333;
+ }
+ .btn-primary {
+ background: #008B6F;
+ color: #fff;
+ }
+		 
 body.blog-page {
   background-color: var(--cinza-claro);
 }

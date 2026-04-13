@@ -1,53 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://floreserdesenvolvimento.com.br/</loc>
-    <lastmod>2026-01-05</lastmod>  <!-- HOJE -->
+    <loc>https://www.floreserdesenvolvimento.com.br/</loc>
+    <lastmod>2026-04-13</lastmod>
     <priority>1.0</priority>
   </url>
-
   <url>
-    <loc>https://floreserdesenvolvimento.com.br/blog/</loc>
-    <lastmod>2026-01-05</lastmod>  <!-- HOJE -->
+    <loc>https://www.floreserdesenvolvimento.com.br/blog.html</loc>
+    <lastmod>2026-04-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-
   <url>
-    <loc>https://floreserdesenvolvimento.com.br/blog/o-que-e-psicopedagogia</loc>
-    <lastmod>2026-01-02</lastmod>  <!-- Blog lançamento -->
+    <loc>https://www.floreserdesenvolvimento.com.br/blog/o-que-e-psicopedagogia.html</loc>
+    <lastmod>2026-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-
   <url>
-    <loc>https://floreserdesenvolvimento.com.br/blog/quando-procurar-psicologo-infantil</loc>
-    <lastmod>2026-01-02</lastmod>  <!-- Blog lançamento -->
+    <loc>https://www.floreserdesenvolvimento.com.br/blog/quando-procurar-psicologo-infantil.html</loc>
+    <lastmod>2026-04-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  
   <url>
-   <loc>https://www.floreserdesenvolvimento.com.br/blog/fonoaudiologia-em-piraquara</loc>
-   <lastmod>2026-02-13</lastmod>
-   <priority>0.7</priority>
+    <loc>https://www.floreserdesenvolvimento.com.br/blog/fonoaudiologia-em-piraquara.html</loc>
+    <lastmod>2026-02-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
-
   <url>
-	<loc>https://www.floreserdesenvolvimento.com.br/blog/avaliacao-neuropsicologica-piraquara</loc>
-	<lastmod>2026-02-14</lastmod>
-	<priority>0.7</priority>
+    <loc>https://www.floreserdesenvolvimento.com.br/blog/avaliacao-neuropsicologica-piraquara.html</loc>
+    <lastmod>2026-03-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
-
   <url>
-	<loc>https://floreserdesenvolvimento.com.br/blog/terapia-aba-piraquara</loc>
-	<lastmod>2026-03-18</lastmod>
-	<priority>0.7</priority>
+    <loc>https://www.floreserdesenvolvimento.com.br/blog/terapia-aba-piraquara.html</loc>
+    <lastmod>2026-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
-  
   <url>
-	<loc>https://floreserdesenvolvimento.com.br/blog/musicalizacao-infantil-piraquara</loc>
-	<lastmod>2026-03-24</lastmod>
-	<priority>0.7</priority>
+    <loc>https://www.floreserdesenvolvimento.com.br/blog/musicalizacao-infantil-piraquara.html</loc>
+    <lastmod>2026-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.floreserdesenvolvimento.com.br/blog/psicomotricidade-piraquara.html</loc>
+    <lastmod>2026-04-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.floreserdesenvolvimento.com.br/blog/reforco-escolar-piraquara.html</loc>
+    <lastmod>2026-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.floreserdesenvolvimento.com.br/blog/orientacao-parental-piraquara.html</loc>
+    <lastmod>2026-04-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>

@@ -1,27 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-   <head>
-      <style>
-         header {
-         background-color: #fff;
-         box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-         }
-         .hero-title {
-         font-size: 2rem;
-         color: #333;
-         }
-         .btn-primary {
-         background: #008B6F;
-         color: #fff;
-         }
-      </style>
+   <head> 
       <script type="application/ld+json">
          {
            "@context": "https://schema.org",
-           "@type": "Blog",
-           "name": "Blog da Clínica Floreser",
-           "description": "Artigos sobre psicologia infantil, desenvolvimento emocional e orientação parental",
-           "url": "https://www.floreserdesenvolvimento.com.br/blog.html",
+		   "@type": "Blog",
+		   "name": "Blog da Clínica Floreser",
+		   "inLanguage": "pt-BR",
+		   "description": "Artigos clínicos sobre desenvolvimento infantil, terapia ABA, fonoaudiologia e neuropsicologia em Piraquara.",
+		   "keywords": "psicologia infantil Piraquara, terapia ABA, fonoaudiologia, desenvolvimento infantil",
+		   "url": "https://www.floreserdesenvolvimento.com.br/blog.html",
            "publisher": {
          	"@type": "Organization",
          	"name": "Clínica Floreser Desenvolvimento e Aprendizagem",
@@ -34,8 +22,8 @@
       </script>	
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Blog de Saúde e Desenvolvimento em Piraquara</title>
-      <meta name="description" content="Informações sobre psicologia, fonoaudiologia e terapia ABA. Dicas de especialistas para uma vida mais saudável e equilibrada. Confira!">
+      <title>Blog | Psicologia e Desenvolvimento Infantil | Clínica Floreser</title>
+      <meta name="description" content="Artigos clínicos sobre desenvolvimento infantil, terapia ABA, fonoaudiologia e neuropsicologia. Conteúdo elaborado pelos especialistas da Clínica Floreser em Piraquara.">
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap" rel="stylesheet">
@@ -51,6 +39,8 @@
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://www.floreserdesenvolvimento.com.br/blog.html" />
       <meta property="og:image" content="https://www.floreserdesenvolvimento.com.br/assets/og-blog.png" />
+	  <meta property="og:locale" content="pt_BR" />
+	  <meta property="og:site_name" content="Clínica Floreser" />
       <!-- CSS principal do site -->
       <link rel="stylesheet" href="styles.css" />
       <link rel="stylesheet" href="/assets/blog.css">
@@ -84,7 +74,17 @@
                   <li><a href="/#equipe" class="nav-link">Equipe</a></li>
                   <li><a href="/blog.html" class="nav-link">Blog</a></li>
                   <li><a href="https://wa.me/5541987868813?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta%20na%20Floreser." target="_blank" class="btn btn-agendar">Agendar Consulta</a></li>
-                  <li><a href="https://instagram.com/floreserdesenvolvimento" target="_blank" class="instagram-link" title="Instagram da Clínica Floreser" aria-label="Instagram da Clínica Floreser">📷</a></li>
+                  <li>
+                     <a href="https://instagram.com/floreserdesenvolvimento" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        class="instagram-link"  
+                        aria-label="Instagram da Clínica Floreser">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                           <path d="M7.75 2C4.574 2 2 4.574 2 7.75v8.5C2 19.426 4.574 22 7.75 22h8.5C19.426 22 22 19.426 22 16.25v-8.5C22 4.574 19.426 2 16.25 2h-8.5zm0 2h8.5C18.216 4 20 5.784 20 7.75v8.5c0 1.966-1.784 3.75-3.75 3.75h-8.5C5.784 20 4 18.216 4 16.25v-8.5C4 5.784 5.784 4 7.75 4zm8.75 1.5a1 1 0 100 2 1 1 0 000-2zM12 7a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6z"/>
+                        </svg>
+                     </a>
+                  </li>
                </ul>
             </div>
          </nav>
@@ -101,32 +101,111 @@
             orientação parental e saúde emocional.
          </p>
          <section class="blog-grid" aria-label="Lista de artigos do blog">
-            <!-- Artigo 6-->
-            <article class="blog-card">
-               <a href="/blog/musicalizacao-infantil-piraquara.html" class="blog-image">
-               <img 
-                  src="/assets/musicalizacao-infantil-piraquara.webp"             
-                  alt="Aula de musicalização infantil na Clínica Floreser em Piraquara"
-                  width="1200"
-                  height="630"
-                  loading="lazy">
-               </a>
-               <div class="blog-content">
-                  <span class="blog-category">Musicalização</span>
-                  <h2>
-                     <a href="/blog/musicalizacao-infantil-piraquara.html">
-                     Musicalização Infantil: Estimulando o cérebro através dos sons
-                     </a>
-                  </h2>
-                  <p class="blog-meta">Publicado em 24/03/2026</p>
-                  <p class="blog-excerpt">
-                     Descubra como a música auxilia no desenvolvimento da fala, da coordenação motora e da socialização das crianças em nossa clínica em Piraquara.
-                  </p>
-                  <a href="/blog/musicalizacao-infantil-piraquara.html" class="blog-read-more">
-                  Ler artigo →
-                  </a>
-               </div>
-            </article>
+		 
+		     <!-- Artigo 9 -->
+			 <article class="blog-card">
+			   <a href="/blog/orientacao-parental-piraquara.html" class="blog-image">
+				  <img 
+					 src="/assets/orientacao-parental-piraquara.webp"             
+					 alt="Orientação parental em Piraquara com terapeuta auxiliando mãe e criança na Clínica Floreser"
+					 width="1200"
+					 height="630"
+					 loading="lazy">
+			   </a>
+			   <div class="blog-content">
+				  <span class="blog-category">Orientação Parental</span>
+				  <h2>
+					 <a href="/blog/orientacao-parental-piraquara.html">
+						Orientação Parental em Piraquara: Quando o comportamento vira um campo de batalha
+					 </a>
+				  </h2>
+				  <p class="blog-meta">Publicado em 13/04/2026</p>
+				  <p class="blog-excerpt">
+					 Descubra como lidar com birras, desobediência e rotina difícil através de estratégias práticas que ajudam a restaurar o equilíbrio familiar.
+				  </p>
+				  <a href="/blog/orientacao-parental-piraquara.html" class="blog-read-more">
+					 Ler artigo →
+				  </a>
+			   </div>
+			</article>
+			   <!-- Artigo 8 -->
+			   <article class="blog-card">
+				   <a href="/blog/psicomotricidade-piraquara.html" class="blog-image">
+					  <img 
+						 src="/assets/psicomotricidade-piraquara.webp"             
+						 alt="Psicomotricidade infantil em Piraquara com atividades de coordenação e equilíbrio na Clínica Floreser"
+						 width="1200"
+						 height="630"
+						 loading="lazy">
+				   </a>
+				   <div class="blog-content">
+					  <span class="blog-category">Psicomotricidade</span>
+					  <h2>
+						 <a href="/blog/psicomotricidade-piraquara.html">
+							Psicomotricidade em Piraquara: Como o desenvolvimento motor impacta a aprendizagem infantil
+						 </a>
+					  </h2>
+					  <p class="blog-meta">Publicado em 26/03/2026</p>
+					  <p class="blog-excerpt">
+						 Entenda como a psicomotricidade desenvolve equilíbrio, coordenação e atenção, fortalecendo a base para leitura, escrita e desempenho escolar.
+					  </p>
+					  <a href="/blog/psicomotricidade-piraquara.html" class="blog-read-more">
+						 Ler artigo →
+					  </a>
+				   </div>
+				</article>
+			   <!-- Artigo 7 -->
+			   <article class="blog-card">
+				   <a href="/blog/psicomotricidade-piraquara.html" class="blog-image">
+					  <img 
+						 src="/assets/psicomotricidade-piraquara.webp"             
+						 alt="Psicomotricidade infantil em Piraquara com atividades de coordenação e equilíbrio na Clínica Floreser"
+						 width="1200"
+						 height="630"
+						 loading="lazy">
+				   </a>
+				   <div class="blog-content">
+					  <span class="blog-category">Psicomotricidade</span>
+					  <h2>
+						 <a href="/blog/psicomotricidade-piraquara.html">
+							Psicomotricidade em Piraquara: Como o desenvolvimento motor impacta a aprendizagem infantil
+						 </a>
+					  </h2>
+					  <p class="blog-meta">Publicado em 26/03/2026</p>
+					  <p class="blog-excerpt">
+						 Entenda como a psicomotricidade desenvolve equilíbrio, coordenação e atenção, fortalecendo a base para leitura, escrita e desempenho escolar.
+					  </p>
+					  <a href="/blog/psicomotricidade-piraquara.html" class="blog-read-more">
+						 Ler artigo →
+					  </a>
+				   </div>
+				</article>
+            <!-- Artigo 6 -->
+			<article class="blog-card">
+			   <a href="/blog/musicalizacao-infantil-piraquara.html" class="blog-image">
+				  <img 
+					 src="/assets/musicalizacao-infantil-piraquara.webp"             
+					 alt="Musicalização infantil em Piraquara com instrumentos musicais na Clínica Floreser"
+					 width="1200"
+					 height="630"
+					 loading="lazy">
+			   </a>
+			   <div class="blog-content">
+				  <span class="blog-category">Musicalização</span>
+				  <h2>
+					 <a href="/blog/musicalizacao-infantil-piraquara.html">
+						Musicalização Infantil em Piraquara: Como a música estimula fala, coordenação e desenvolvimento
+					 </a>
+				  </h2>
+				  <p class="blog-meta">Publicado em 24/03/2026</p>
+				  <p class="blog-excerpt">
+					 Descubra como a musicalização auxilia no desenvolvimento da fala, coordenação motora e socialização das crianças em Piraquara.
+				  </p>
+				  <a href="/blog/musicalizacao-infantil-piraquara.html" class="blog-read-more">
+					 Ler artigo →
+				  </a>
+			   </div>
+			</article>
             <!-- Artigo 5--> 
             <article class="blog-card">
                <a href="/blog/terapia-aba-piraquara.html" class="blog-image">
