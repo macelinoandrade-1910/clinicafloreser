@@ -1,2 +1,4 @@
-/*  /:splat  301!
+/blog/*.html  /blog/:splat  301!
+/servicos/*.html  /servicos/:splat  301!
+/*.html  /:splat
 https://www.floreserdesenvolvimento.com.br/* https://floreserdesenvolvimento.com.br/:splat 301!
