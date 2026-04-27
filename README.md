@@ -29,7 +29,7 @@ Site institucional desenvolvido para a Floreser Desenvolvimento e Aprendizagem, 
 
 ## 📁 Estrutura do Projeto
 clinicafloreser/
-├── index.html
+├── index
 ├── styles.css
 ├── script.js
 ├── assets/
