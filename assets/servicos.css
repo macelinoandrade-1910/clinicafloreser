@@ -347,6 +347,12 @@
       margin-bottom: 1.5rem;
       font-size: 1.05rem;
     }
+	
+	.final-cta a {
+	  color: #4F6F64;
+	  font-weight: 600;
+	  text-underline-offset: 3px;
+	}
 
     .btn-cta-final {
       background: white;
