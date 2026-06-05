@@ -24,6 +24,12 @@
 	 <priority>0.9</priority>
   </url>
   <url>
+     <loc>https://www.floreserdesenvolvimento.com.br/servicos/avaliacao-neuropsicologica-piraquara</loc>
+	 <lastmod>2026-06-05</lastmod>
+	 <changefreq>monthly</changefreq>
+	 <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://www.floreserdesenvolvimento.com.br/blog/o-que-e-psicopedagogia</loc>
     <lastmod>2026-03-30</lastmod>
     <changefreq>monthly</changefreq>
@@ -42,8 +48,8 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.floreserdesenvolvimento.com.br/blog/avaliacao-neuropsicologica-piraquara</loc>
-    <lastmod>2026-03-27</lastmod>
+    <loc>https://www.floreserdesenvolvimento.com.br/blog/quando-fazer-avaliacao-neuropsicologica</loc>
+    <lastmod>2026-06-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
