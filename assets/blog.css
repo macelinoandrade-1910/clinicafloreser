@@ -318,6 +318,10 @@ body.blog-page {
   vertical-align: top;
 }
 
+.article table tbody td a {
+  color: #008B6F;
+}
+
 .article table tbody td:first-child {
   font-weight: 600;
   color: #008B6F;

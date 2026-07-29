@@ -3,4 +3,4 @@ Allow: /
 Disallow: /assets/
 Disallow: /icons/
 
-Sitemap: https://www.floreserdesenvolvimento.com.br/sitemap.xml
+Sitemap: https://floreserdesenvolvimento.com.br/sitemap.xml

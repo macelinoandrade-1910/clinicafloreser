@@ -1,7 +1,7 @@
-/blog/quando-procurar-psicologo-infantil  /blog/crianca-mudou-de-comportamento  301!
-/blog/avaliacao-neuropsicologica-piraquara  /blog/quando-fazer-avaliacao-neuropsicologica  301!
+/blog/crianca-mudou-de-comportamento  /blog/crianca-mudou-de-comportamento  301!
+/blog/quando-fazer-avaliacao-neuropsicologica  /blog/quando-fazer-avaliacao-neuropsicologica  301!
 
 /blog/*.html  /blog/:splat  301!
 /servicos/*.html  /servicos/:splat  301!
 /*.html  /:splat
-https://www.floreserdesenvolvimento.com.br/* https://floreserdesenvolvimento.com.br/:splat 301!
+https://floreserdesenvolvimento.com.br/* https://floreserdesenvolvimento.com.br/:splat 301!
