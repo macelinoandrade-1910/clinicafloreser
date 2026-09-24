@@ -1,6 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /assets/
-Disallow: /icons/
 
 Sitemap: https://floreserdesenvolvimento.com.br/sitemap.xml
